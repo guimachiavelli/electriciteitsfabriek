@@ -41,9 +41,14 @@ var cube = {
     animationPath: function(target) {
         var currentPosition, path, axis;
 
+
         currentPosition = document.querySelector('.sides').style.transform;
         path = target.getAttribute('data-location');
         axis = path === 'left' || path === 'right' ? 'Y' : 'X';
+
+        if (window.location.search.indexOf('two-steps') < 0) {
+            return ['rotate' + axis + '(' + this.POSITIONS[path] + 'deg)'];
+        }
 
         if (!currentPosition) {
             return ['rotate' + axis + '(' + this.POSITIONS[path] + 'deg)'];

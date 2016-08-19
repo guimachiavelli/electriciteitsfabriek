@@ -1,5 +1,6 @@
 body {
-    overflow: hidden;
+    /*overflow: hidden;*/
+    background-image: url(./assets/front.jpeg);
 }
 
 .menu {
@@ -23,7 +24,7 @@ body {
     top: 0;
     width: 100vh;
     transform: rotateZ(90deg);
-    transform-origin: 2%
+    transform-origin: 1.7%;
 }
 
 .menu-item--about {
@@ -36,7 +37,7 @@ body {
     right: 0;
     width: 100vh;
     transform: rotateZ(-90deg);
-    transform-origin: 98%;
+    transform-origin: 98.4%;
 }
 
 .menu-item--contact {
@@ -56,19 +57,41 @@ body {
     text-decoration: none;
 }
 
+.menu-item__link--active {
+    background: black;
+    color: white;
+    cursor: default;
+}
+
 .cube {
     width: 100vw;
-    height: 100vw;
-    perspective: 100vw;
+    height: 100vh;
     position: absolute;
-    top: -2px;
-    left: -2px;
+    top: 0;
+    left: 0;
     pointer-events: none;
-    backface-visibility: hidden;
     line-height: 100vh;
     text-align: center;
     font-size: 10vh;
     /*transform: scale(0.25);*/
+
+}
+
+.cube--transition-horizontal {
+    perspective: 100vw;
+}
+
+.cube--transition-horizontal .sides {
+    transform-origin: 50% 50% 50vw;
+}
+
+
+.cube--transition-vertical {
+    perspective: 100vh;
+}
+
+.cube--transition-vertical .sides {
+    transform-origin: 50% 50% 50vh;
 }
 
 .sides {
@@ -77,24 +100,40 @@ body {
     position: relative;
     transform-style: preserve-3d;
     margin: 0;
-    padding: 1px;
+    padding: 0;
     list-style: none;
+}
+
+.sides--transition {
     transition: transform 700ms;
-    transform-origin: 50% 50% 50vw;
-    /*animation: example 10s linear infinite;*/
+}
+
+.sides-transition--vertical {
+
 }
 
 .side {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     /*opacity: 0.75;*/
     margin: 0;
     padding: 0;
     color: white;
-    background-size: 100vw 100vh;
-    /*background-size: cover;*/
-    background-position: center top;
+    background-size: cover;
+    display: none;
+    top: 0;
+    left: 0;
+    background-repeat: repeat;
+}
+
+.side--will-animate {
+    display: block;
+    position: absolute;
+}
+
+.side--visible {
+    display: block;
 }
 
 .side--front {
@@ -102,30 +141,46 @@ body {
 }
 
 .side--back {
-    transform: translateZ(100vw) scale(1, -1);
     background-image: url(./assets/back.jpeg);
 }
 
 .side--left {
     background-image: url(./assets/left.jpeg);
-    transform: translateZ(50vw) translateX(-50vw) rotateY(90deg);
-    backface-visibility: hidden;
 }
 
 .side--right {
     background-image: url(./assets/right.jpeg);
-    transform: translateZ(50vw) translateX(50vw) rotateY(-90deg);
 }
 
 .side--top {
     background-image: url(./assets/top.jpeg);
-    transform: translateZ(50vw) translateY(-50vw) rotateX(-90deg);
-    backface-visibility: hidden;
 }
 
 .side--bottom {
     background-image: url(./assets/bottom.jpeg);
-    transform: translateZ(50vw) translateY(50vw) rotateX(90deg);
+}
+
+.side--position-back {
+    transform: translateZ(100vw) scale(1, -1);
+}
+
+.side--position-right {
+    transform: translateZ(50vw) translateX(50vw) rotateY(-90deg);
+}
+
+.side--position-left {
+    transform: translateZ(50vw) translateX(-50vw) rotateY(90deg);
+}
+
+
+.side--position-top {
+    /*transform: translateZ(50vw) translateY(-50vw) rotateX(-90deg);*/
+    transform: translateZ(50vh) translateY(-50vh) rotateX(-90deg);
+}
+
+.side--position-bottom {
+    /*transform: translateZ(50vw) translateY(50vw) rotateX(90deg);*/
+    transform: translateZ(50vh) translateY(50vh) rotateX(90deg);
 }
 
 @keyframes example {

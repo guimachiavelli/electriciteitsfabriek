@@ -1,0 +1,28 @@
+title: Contact
+pages: false
+fields:
+    title:
+        label: Title
+        type:  text
+    instagram:
+        label: Instagram profile link
+        type: text
+        placeholder: "e.g.: https://www.instagram.com/themuseumofmodernart/"
+        width: 1/2
+    twitter:
+        label: "Twitter timeline link"
+        type: text
+        placeholder: "e.g.: https://twitter.com/KimKierkegaard"
+        width: 1/2
+    address:
+        label: Address
+        type:  textarea
+    board:
+        label: Board information
+        type: textarea
+        width: 1/2
+    team:
+        label: Team information
+        type: textarea
+        width: 1/2
+

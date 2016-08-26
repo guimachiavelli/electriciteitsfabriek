@@ -1,0 +1,1 @@
+{"virtualbox":{"/var/www":{"guestpath":"/var/www","hostpath":"/Users/gui/code/work/electriciteitsfabriek.nl","disabled":false},"/site":{"mount_options":["dmode=777","fmode=777"],"owner":"vagrant","group":"www-data","guestpath":"/site","hostpath":"/Users/gui/code/work/electriciteitsfabriek.nl","disabled":false}}}

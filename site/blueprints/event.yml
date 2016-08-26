@@ -1,0 +1,32 @@
+title: Event
+pages: false
+files:
+  sortable: true
+fields:
+  title:
+    label: Title
+    type:  text
+  artists:
+    label: Artists
+    type:  text
+  eventdate:
+      label: Date
+      type: text
+      width: 1/2
+  time:
+      label: Time
+      type: text
+      width: 1/2
+  text:
+    label: Text
+    type:  textarea
+    width: 1/2
+  media:
+    label: Media
+    type: textarea
+    width: 1/2
+  archived:
+      label: Archive
+      text: Hide item from Agenda page and display it on Archive page
+      type: checkbox
+      default: 0

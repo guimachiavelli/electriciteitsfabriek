@@ -1,0 +1,8 @@
+title: Agenda
+pages:
+  template: event
+files: false
+fields:
+  title:
+    label: Title
+    type:  text

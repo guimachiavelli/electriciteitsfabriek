@@ -1,0 +1,6 @@
+title: Archive
+pages: false
+fields:
+  title:
+    label: Title
+    type:  text

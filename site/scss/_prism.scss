@@ -1,0 +1,120 @@
+$prism-width: 100vw;
+$prism-height: 100vh;
+
+.cube {
+    width: $prism-width;
+    height: $prism-height;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.cube--transition-horizontal {
+    perspective: $prism-width;
+
+    .sides {
+        transform-origin: 50% 50% ($prism-width/2);
+    }
+}
+
+.cube--transition-vertical {
+    perspective: $prism-height;
+
+    .sides {
+        transform-origin: 50% 50% ($prism-height/2);
+    }
+}
+
+.sides {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sides--transition {
+    transition: transform 700ms;
+}
+
+.sides-transition--vertical {
+
+}
+
+.side {
+    position: absolute;
+    width: $prism-width;
+    height: $prism-height;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-size: cover;
+    display: none;
+    top: 0;
+    left: 0;
+    background-repeat: repeat;
+}
+
+.side--will-animate {
+    display: block;
+    position: absolute;
+}
+
+.side--visible {
+    display: block;
+}
+
+.side--front {
+    background-image: url(../images/front.jpeg);
+}
+
+.side--back {
+    background-image: url(../images/back.jpeg);
+}
+
+.side--left {
+    background-image: url(../images/left.jpeg);
+}
+
+.side--right {
+    background-image: url(../images/right.jpeg);
+}
+
+.side--top {
+    background-image: url(../images/top.jpeg);
+}
+
+.side--bottom {
+    background-image: url(../images/bottom.jpeg);
+}
+
+.side--position-back {
+    transform: translateZ($prism-width) scale(1, -1);
+}
+
+.side--position-right {
+    transform: translateZ(($prism-width/2))
+               translateX(($prism-width/2))
+               rotateY(-90deg);
+}
+
+.side--position-left {
+    transform: translateZ(($prism-width/2))
+               translateX(-($prism-width/2))
+               rotateY(90deg);
+}
+
+
+.side--position-top {
+    transform: translateZ(($prism-height/2))
+               translateY(-($prism-height/2))
+               rotateX(-90deg);
+}
+
+.side--position-bottom {
+    transform: translateZ(($prism-height/2))
+               translateY(($prism-height/2))
+               rotateX(90deg);
+}

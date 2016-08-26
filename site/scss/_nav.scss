@@ -1,0 +1,58 @@
+.menu {
+    position: absolute;
+    z-index: 10;
+}
+
+.menu-item {
+    position: fixed;
+    width: 100%;
+    height: 25px;
+    padding: 0 25px;
+    box-sizing: border-box;
+    list-style: none;
+    text-align: center;
+}
+
+.menu-item--agenda {
+    left: 0;
+    top: 0;
+    width: 100vh;
+    transform: rotateZ(90deg);
+    transform-origin: 1.7%;
+}
+
+.menu-item--about {
+    bottom: 0;
+    left: 0;
+}
+
+.menu-item--archive {
+    top: 0;
+    right: 0;
+    width: 100vh;
+    transform: rotateZ(-90deg);
+    transform-origin: 98.4%;
+}
+
+.menu-item--contact {
+    top: 0;
+    left: 0;
+}
+
+.menu-item__link {
+    background: white;
+    display: block;
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    font-size: 20px;
+    color: black;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.menu-item__link--active {
+    background: black;
+    color: white;
+    cursor: default;
+}

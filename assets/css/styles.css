@@ -16,25 +16,25 @@ body {
 
 .menu-item--agenda {
   left: 0;
-  top: 0;
+  top: -25px;
   width: 100vh;
   -webkit-transform: rotateZ(90deg);
           transform: rotateZ(90deg);
-  -webkit-transform-origin: 1.7%;
-          transform-origin: 1.7%; }
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%; }
 
 .menu-item--about {
   bottom: 0;
   left: 0; }
 
 .menu-item--archive {
-  top: 0;
+  top: -25px;
   right: 0;
   width: 100vh;
   -webkit-transform: rotateZ(-90deg);
           transform: rotateZ(-90deg);
-  -webkit-transform-origin: 98.4%;
-          transform-origin: 98.4%; }
+  -webkit-transform-origin: 100% 100%;
+          transform-origin: 100% 100%; }
 
 .menu-item--contact {
   top: 0;

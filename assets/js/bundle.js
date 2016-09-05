@@ -52,11 +52,28 @@ var cube = {
     },
 
     calculatedTransform: function(target, location) {
-        var axis;
+        var axis, origin;
 
         axis = (location === 'left' || location === 'right') ? 'Y' : 'X';
 
-        return 'rotate' + axis + '(' + this.POSITIONS[location] + 'deg)';
+        // XXX: translate the element because
+        //      transform-origin-z does not work in safari
+        switch (location) {
+            case 'left':
+                origin = 'translateZ(50vw) translateX(50vw)';
+                break;
+            case 'right':
+                origin = 'translateZ(50vw) translateX(-50vw)';
+                break;
+            case 'top':
+                origin = 'translateZ(50vh) translateY(50vh)';
+                break;
+            case 'bottom':
+                origin = 'translateZ(50vh) translateY(-50vh)';
+                break;
+        }
+
+        return origin + ' rotate' + axis + '(' + this.POSITIONS[location] + 'deg)';
     },
 
     animate: function(target) {

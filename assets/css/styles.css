@@ -122,16 +122,10 @@ html {
 .cube--transition-horizontal {
   -webkit-perspective: 100vw;
           perspective: 100vw; }
-  .cube--transition-horizontal .sides {
-    -webkit-transform-origin: 50% 50% 50vw;
-            transform-origin: 50% 50% 50vw; }
 
 .cube--transition-vertical {
   -webkit-perspective: 100vh;
           perspective: 100vh; }
-  .cube--transition-vertical .sides {
-    -webkit-transform-origin: 50% 50% 50vh;
-            transform-origin: 50% 50% 50vh; }
 
 .sides {
   width: 100%;

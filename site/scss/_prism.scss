@@ -18,18 +18,10 @@ $side-height: $prism-height + $side-height-padding;
 
 .cube--transition-horizontal {
     perspective: $prism-width;
-
-    .sides {
-        transform-origin: 50% 50% ($prism-width/2);
-    }
 }
 
 .cube--transition-vertical {
     perspective: $prism-height;
-
-    .sides {
-        transform-origin: 50% 50% ($prism-height/2);
-    }
 }
 
 .sides {

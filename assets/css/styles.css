@@ -1,5 +1,60 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
 body {
-  background-image: url(../images/front.jpeg); }
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  /*background-image: url(../images/front.jpeg);*/ }
+
+html {
+  box-sizing: border-box; }
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit; }
 
 .menu {
   position: absolute;
@@ -61,7 +116,8 @@ body {
   height: 100vh;
   position: absolute;
   top: 0;
-  left: 0; }
+  left: 0;
+  overflow: hidden; }
 
 .cube--transition-horizontal {
   -webkit-perspective: 100vw;
@@ -88,27 +144,32 @@ body {
   list-style: none; }
 
 .sides--transition {
-  -webkit-transition: -webkit-transform 700ms;
-  transition: -webkit-transform 700ms;
-  transition: transform 700ms;
-  transition: transform 700ms, -webkit-transform 700ms; }
+  -webkit-transition: -webkit-transform 700ms cubic-bezier(0, 0, 0.2, 1);
+  transition: -webkit-transform 700ms cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 700ms cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 700ms cubic-bezier(0, 0, 0.2, 1), -webkit-transform 700ms cubic-bezier(0, 0, 0.2, 1); }
 
 .side {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
+  width: 115vw;
+  height: 115vh;
   margin: 0;
   padding: 0;
   color: white;
   background-size: cover;
   display: none;
-  top: 0;
-  left: 0;
+  top: -7.5vh;
+  left: -7.5vw;
   background-repeat: repeat; }
 
+.side__content {
+  max-width: 100vw;
+  max-height: 100vh;
+  margin: 7.5vh 0 0 7.5vw;
+  padding: 25px; }
+
 .side--will-animate {
-  display: block;
-  position: absolute; }
+  display: block; }
 
 .side--visible {
   display: block; }

@@ -1,3 +1,13 @@
 body {
-    background-image: url(../images/front.jpeg);
+    /*background-image: url(../images/front.jpeg);*/
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+    box-sizing: inherit;
 }

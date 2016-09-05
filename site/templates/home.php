@@ -5,19 +5,27 @@
         <li class="side side--front side--visible"></li>
 
         <li id="agenda" data-location="left" class="side side--left">
-            <?php snippet('page-agenda', array('content' => page('agenda'))); ?>
+            <div class="side__content">
+                <?php snippet('page-agenda', array('content' => page('agenda'))); ?>
+            </div>
         </li>
 
         <li id="about" data-location="bottom" class="side side--bottom">
-            <?php snippet('page-default', array('content' => page('about'))); ?>
+            <div class="side__content">
+                <?php snippet('page-default', array('content' => page('about'))); ?>
+            </div>
         </li>
 
         <li id="contact" data-location="top" class="side side--top">
-            <?php snippet('page-contact', array('content' => page('contact'))); ?>
+            <div class="side__content">
+                <?php snippet('page-contact', array('content' => page('contact'))); ?>
+            </div>
         </li>
 
         <li id="archive" data-location="right" class="side side--right">
-            <?php snippet('page-archive', array('content' => page('archive'))); ?>
+            <div class="side__content">
+                <?php snippet('page-archive', array('content' => page('archive'))); ?>
+            </div>
         </li>
     </ul>
 </main>

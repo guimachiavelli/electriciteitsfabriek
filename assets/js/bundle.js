@@ -85,11 +85,11 @@ var cube = {
     },
 
     resetAnimation: function(targetEl, currentEl) {
-        targetEl.className = targetEl.className.replace(/side--position-*/, '');
+        targetEl.className = targetEl.className.replace(/side--position-.*/, '');
         targetEl.classList.remove(this.animateClass);
         this.containerEl.classList.remove(this.transitionClass);
         this.prismEl.className = this.prismEl.className
-                                     .replace(/cube--transition-*/, '');
+                                     .replace(/cube--transition-.*/, '');
 
         if (currentEl) {
             currentEl.classList.remove(this.visibleClass);

@@ -1,11 +1,10 @@
 $prism-width: 100vw;
 $prism-height: 100vh;
 
-$side-width-padding: 15vw;
-$side-height-padding: 15vh;
+$side-width-padding: 0;
+$side-height-padding: 0;
 $side-width: $prism-width + $side-width-padding;
 $side-height: $prism-height + $side-height-padding;
-
 
 .cube {
     width: $prism-width;
@@ -44,8 +43,8 @@ $side-height: $prism-height + $side-height-padding;
 
 .side {
     position: absolute;
-    width: $side-width;
-    height: $side-height;
+    width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
     color: white;
@@ -54,6 +53,7 @@ $side-height: $prism-height + $side-height-padding;
     top: $side-height-padding/-2;
     left: $side-width-padding/-2;
     background-repeat: repeat;
+    background-position: center;
 }
 
 .side__content {
@@ -65,6 +65,8 @@ $side-height: $prism-height + $side-height-padding;
 
 .side--will-animate {
     display: block;
+    will-change: transform;
+    z-index: 100000;
 }
 
 .side--visible {

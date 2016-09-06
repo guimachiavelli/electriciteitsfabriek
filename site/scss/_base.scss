@@ -1,7 +1,3 @@
-body {
-    background-image: url(../images/front.jpeg);
-}
-
 html {
     box-sizing: border-box;
 }
@@ -10,4 +6,28 @@ html {
 *:after,
 *:before {
     box-sizing: inherit;
+}
+
+body {
+    background-image: url(../images/front.jpeg);
+    font-size: font-size(body);
+    font-family: $main-font;
+    line-height: baselines(3);
+}
+
+p {
+    font-size: font-size(body);
+    line-height: baselines(3);
+}
+
+a {
+    color: colour(black);
+
+    &:visited {
+        color: colour(black);
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
 }

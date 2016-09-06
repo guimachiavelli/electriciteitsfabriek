@@ -1,19 +1,19 @@
-<li>
-    <h3>
-        <a href="<?php echo $event->url(); ?>">
-            <time>
+<li class="event">
+    <header class="event__header">
+        <a class="event__link" href="<?php echo $event->url(); ?>">
+            <time class="event__date">
                 <?php echo $event->eventdate(); ?>
                 <?php echo $event->time(); ?>
             </time>
-            <span>
+            <h3 class="event__title">
                 <?php echo $event->artists(); ?>:
                 <?php echo $event->title()->html(); ?>
-            </span>
+            </h3>
         </a>
-    </h3>
+    </header>
 
-    <p>
+    <p class="event__excerpt">
         <?php echo $event->text()->ef_excerpt(); ?>
-        <a href="<?php echo $event->url(); ?>">more</a>
+        <a class="event__more" href="<?php echo $event->url(); ?>">more</a>
     </p>
 </li>

@@ -1,0 +1,18 @@
+.site-section {
+    color: colour(black);
+    background: colour(white);
+    padding: baselines(3);
+    overflow: auto;
+}
+
+.site-section__header {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+.site-section--agenda {
+    width: 20%;
+    max-height: 75vh;
+    min-width: 250px;
+}

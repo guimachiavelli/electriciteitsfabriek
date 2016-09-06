@@ -1,0 +1,70 @@
+$main-font: 'Times', 'Times New Roman', serif;
+
+$baseline: 6px;
+$base-font-size: 5px;
+
+$font-sizes: (
+    h1: $base-font-size * 5,
+    body: $base-font-size * 3,
+    menu: $base-font-size * 5
+);
+
+$colours: (
+    black: black,
+    white: white
+);
+
+$breakpoints: (
+    mobile: 320px,
+    tablet: 768px,
+    desktop: 1024px,
+    desktop-hd: 1440px
+);
+
+@function baselines($lines) {
+    @return $lines * $baseline;
+}
+
+@function font-size($size) {
+    @return map-get($font-sizes, $size);
+}
+
+@function colour($colour) {
+    @return map-get($colours, $colour);
+}
+
+@function breakpoint($breakpoint) {
+    @return map-get($breakpoints, $breakpoint);
+}
+
+@mixin animation($animation) {
+    -ms-animation: $animation;
+    -webkit-animation: $animation;
+    -moz-animation: $animation;
+    -o-animation: $animation;
+    animation: $animation;
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+
+    @-ms-keyframes #{$animationName} {
+        @content;
+    }
+
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+

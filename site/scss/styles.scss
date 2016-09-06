@@ -1,5 +1,9 @@
 @import '../../node_modules/node-reset-scss/scss/_reset.scss';
 
+@import 'vars';
 @import 'base';
 @import 'nav';
 @import 'prism';
+
+@import 'section';
+@import 'events';

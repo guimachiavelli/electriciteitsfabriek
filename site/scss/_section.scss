@@ -28,6 +28,11 @@
 
 }
 
+.site-section--contact {
+    width: 75%;
+    right: $menu-item-height;
+}
+
 .site-section--default {
     bottom: $menu-item-height;
     right: $menu-item-height;
@@ -39,3 +44,4 @@
 .site-section__default-content {
     columns: 100px 2;
 }
+

@@ -2,7 +2,7 @@
 
 <main class="cube" role="main">
     <ul class="sides">
-        <li class="side side--front side--visible"></li>
+        <li class="side side--front "></li>
 
         <li id="agenda" data-location="left" class="side side--left">
             <div class="side__content">
@@ -16,7 +16,7 @@
             </div>
         </li>
 
-        <li id="contact" data-location="top" class="side side--top">
+        <li id="contact" data-location="top" class="side side--top side--visible">
             <div class="side__content">
                 <?php snippet('page-contact', array('content' => page('contact'))); ?>
             </div>

@@ -1,24 +1,35 @@
-<div class="text">
-    <h1><?php echo $content->title()->html() ?></h1>
-    <?php echo $content->address()->kirbytext() ?>
+<section class="site-section site-section--contact">
+    <header class="site-section__header">
+        <h2 class="site-section__title">
+            <?php echo $content->title()->html(); ?>
+        </h2>
+    </header>
 
-    <?php if ($content->instagram()->isNotEmpty()): ?>
-        <a href="<?php echo $content->instagram()->toURL(); ?>">
-            Instagram
-        </a>
-    <?php endif; ?>
+    <div class="contact">
+        <div class="contact__column contact__column--address">
+            <?php echo $content->address()->kirbytext(); ?>
 
-    <?php if ($content->twitter()->isNotEmpty()): ?>
-        <a href="<?php echo $content->twitter()->toURL(); ?>">
-            Twitter
-        </a>
-    <?php endif; ?>
-</div>
+            <?php if ($content->instagram()->isNotEmpty()): ?>
+                <a class="contact__social" href="<?php echo $content->instagram()->toURL(); ?>">
+                    <i class="i i--instagram"></i>
+                    <b class="i__text-replacement">Instagram</b>
+                </a>
+            <?php endif; ?>
 
-<div class="text">
-    <?php echo $content->board()->kirbytext() ?>
-</div>
+            <?php if ($content->twitter()->isNotEmpty()): ?>
+                <a class="contact__social" href="<?php echo $content->twitter()->toURL(); ?>">
+                    <i class="i i--twitter"></i>
+                    <b class="i__text-replacement">Twitter</b>
+                </a>
+            <?php endif; ?>
+        </div>
 
-<div class="text">
-    <?php echo $content->team()->kirbytext() ?>
-</div>
+        <div class="contact__column contact__column--board">
+            <?php echo $content->board()->kirbytext(); ?>
+        </div>
+
+        <div class="contact__column contact__column--team">
+            <?php echo $content->team()->kirbytext(); ?>
+        </div>
+    </div>
+</section>

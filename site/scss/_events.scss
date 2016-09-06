@@ -12,6 +12,7 @@
 
 .event__link {
     text-decoration: none;
+    display: block;
 
     &:hover {
         text-decoration: underline;
@@ -24,6 +25,14 @@
 
 .event__title {
     text-transform: uppercase;
+    padding-left: 1.5em;
+}
+
+.event__title--archived {
+    text-decoration: underline;
+}
+
+.event__author {
     padding-left: 1.5em;
 }
 

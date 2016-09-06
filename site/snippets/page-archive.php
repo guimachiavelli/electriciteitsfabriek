@@ -1,13 +1,15 @@
-<div class="text">
-  <h2><?php echo $content->title()->html() ?></h2>
-  <?php echo $content->text()->kirbytext() ?>
-</div>
+<section class="site-section site-section--archive">
+    <header class="site-section__header">
+        <h2 class="site-section__title">
+            <?php echo $content->title()->html() ?>
+        </h2>
+    </header>
 
-<ul class="">
-    <?php $events = page('agenda')->children(); ?>
-    <?php $events = $events->filterBy('archived', '==', '1'); ?>
-    <?php foreach($events as $event): ?>
-        <?php snippet('archived-event', array('event' => $event)); ?>
-  <?php endforeach ?>
-</ul>
-
+    <ol class="events">
+        <?php $events = page('agenda')->children(); ?>
+        <?php $events = $events->filterBy('archived', '==', '1'); ?>
+        <?php foreach($events as $event): ?>
+            <?php snippet('archived-event', array('event' => $event)); ?>
+        <?php endforeach ?>
+    </ol>
+</section>

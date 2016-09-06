@@ -1,15 +1,15 @@
-<li>
-    <h3>
-        <a href="<?php echo $event->url(); ?>">
-            <time>
+<li class="event event--archived">
+    <header class="event__header">
+        <a class="event__link" href="<?php echo $event->url(); ?>">
+            <time class="event__date">
                 <?php echo $event->eventdate(); ?>
             </time>
-            <span>
+            <h3 class="event__title event__title--archived">
                 <?php echo $event->title()->html(); ?>
-            </span>
-            <span>
+            </h3>
+            <h4 class="event__author">
                 <?php echo $event->artists(); ?>
-            </span>
+            </h4>
         </a>
-    </h3>
+    </header>
 </li>

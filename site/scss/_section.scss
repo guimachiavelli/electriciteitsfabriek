@@ -18,11 +18,22 @@
     min-width: 250px;
 }
 
+.site-section--archive {
+    max-height: 75vh;
+    min-height: 300px;
+    min-width: 250px;
+    width: 20%;
+    bottom: $menu-item-height;
+    right: $menu-item-height;
+
+}
+
 .site-section--default {
     bottom: $menu-item-height;
     right: $menu-item-height;
     width: 55%;
     max-height: 70%;
+    min-height: 300px;
 }
 
 .site-section__default-content {

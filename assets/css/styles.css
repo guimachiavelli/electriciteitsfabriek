@@ -245,11 +245,20 @@ a {
   max-height: 75vh;
   min-width: 250px; }
 
+.site-section--archive {
+  max-height: 75vh;
+  min-height: 300px;
+  min-width: 250px;
+  width: 20%;
+  bottom: 25px;
+  right: 25px; }
+
 .site-section--default {
   bottom: 25px;
   right: 25px;
   width: 55%;
-  max-height: 70%; }
+  max-height: 70%;
+  min-height: 300px; }
 
 .site-section__default-content {
   -webkit-columns: 100px 2;
@@ -262,7 +271,8 @@ a {
     margin-bottom: 0; }
 
 .event__link {
-  text-decoration: none; }
+  text-decoration: none;
+  display: block; }
   .event__link:hover {
     text-decoration: underline; }
 
@@ -271,6 +281,12 @@ a {
 
 .event__title {
   text-transform: uppercase;
+  padding-left: 1.5em; }
+
+.event__title--archived {
+  text-decoration: underline; }
+
+.event__author {
   padding-left: 1.5em; }
 
 .event__more {

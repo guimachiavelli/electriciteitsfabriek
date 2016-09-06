@@ -62,7 +62,11 @@ body {
 
 p {
   font-size: 15px;
-  line-height: 18px; }
+  line-height: 18px;
+  margin-bottom: 18px; }
+
+h1, h2 {
+  text-transform: uppercase; }
 
 a {
   color: black; }
@@ -228,7 +232,8 @@ a {
   color: black;
   background: white;
   padding: 18px;
-  overflow: auto; }
+  overflow: auto;
+  position: absolute; }
 
 .site-section__header {
   height: 0;
@@ -239,6 +244,17 @@ a {
   width: 20%;
   max-height: 75vh;
   min-width: 250px; }
+
+.site-section--default {
+  bottom: 25px;
+  right: 25px;
+  width: 55%;
+  max-height: 70%; }
+
+.site-section__default-content {
+  -webkit-columns: 100px 2;
+     -moz-columns: 100px 2;
+          columns: 100px 2; }
 
 .event {
   margin-bottom: 27px; }

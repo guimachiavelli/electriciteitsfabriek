@@ -18,6 +18,11 @@ body {
 p {
     font-size: font-size(body);
     line-height: baselines(3);
+    margin-bottom: baselines(3);
+}
+
+h1, h2 {
+    text-transform: uppercase;
 }
 
 a {

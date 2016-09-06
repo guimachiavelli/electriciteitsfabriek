@@ -3,6 +3,7 @@
     background: colour(white);
     padding: baselines(3);
     overflow: auto;
+    position: absolute;
 }
 
 .site-section__header {
@@ -15,4 +16,15 @@
     width: 20%;
     max-height: 75vh;
     min-width: 250px;
+}
+
+.site-section--default {
+    bottom: $menu-item-height;
+    right: $menu-item-height;
+    width: 55%;
+    max-height: 70%;
+}
+
+.site-section__default-content {
+    columns: 100px 2;
 }

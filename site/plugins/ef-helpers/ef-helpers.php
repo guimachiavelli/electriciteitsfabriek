@@ -21,7 +21,17 @@ class EF {
     }
 
 
-    public static function nav_active_class($page) {
-        return $page->isOpen() ? 'menu-item__link--active' : '';
+    public static function nav_active_class($link, $current) {
+        if ($current->isChildOf('agenda')) {
+            if ($current->archived() == '1' && $link->slug() == 'archive') {
+                return 'menu-item__link--active';
+            }
+
+            if ($current->archived() == '1' && $link->slug() == 'agenda') {
+                return '';
+            }
+        }
+
+        return $link->isOpen() ? 'menu-item__link--active' : '';
     }
 }

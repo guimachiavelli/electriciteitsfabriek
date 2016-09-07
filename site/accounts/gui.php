@@ -7,7 +7,7 @@ email: hey@guimachiavelli.com
 language: en
 role: admin
 history:
+  - agenda/a-story-of-steel-and-silence
   - contact
   - agenda/fratres-paert
-  - agenda/a-story-of-steel-and-silence
   - home

@@ -43,3 +43,54 @@
         content: '…';
     }
 }
+
+.full-event {
+    overflow: hidden;
+}
+
+.full-event__column {
+    float: left;
+}
+
+.full-event__column--text {
+    width: 25%;
+    margin-right: 5%;
+}
+
+.full-event__column--media {
+    width: 70%;
+
+    figure {
+        margin-bottom: baselines(3);
+    }
+}
+
+.full-event__header {
+    margin-bottom: baselines(3);
+}
+
+.full-event__title {
+    text-decoration: underline;
+    text-transform: uppercase;
+    padding-left: 1.5em;
+}
+
+.full-event__artists {
+    padding-left: 1.5em;
+}
+
+.full-event__video {
+    width: 100%;
+    height: 0;
+    padding-top: percentage(9/16);
+    position: relative;
+    margin-bottom: baselines(3);
+
+    iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+    }
+}
+

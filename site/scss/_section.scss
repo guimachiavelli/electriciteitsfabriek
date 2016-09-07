@@ -25,7 +25,14 @@
     width: 20%;
     bottom: $menu-item-height;
     right: $menu-item-height;
+}
 
+.site-section--event {
+    max-height: 75vh;
+    min-width: 250px;
+    width: 75%;
+    bottom: $menu-item-height;
+    right: $menu-item-height;
 }
 
 .site-section--contact {

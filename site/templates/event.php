@@ -1,19 +1,13 @@
 <?php EF::snippet_if_not_ajax('header'); ?>
 
-  <main class="" role="main">
-
-    <header class="">
-      <h1><?php echo $page->title()->html() ?></h1>
-    </header>
-
-    <div>
-      <?php echo $page->text()->kirbytext() ?>
-    </div>
-
-    <div>
-      <?php echo $page->media()->kirbytext() ?>
-    </div>
-
-  </main>
+<main class="cube" role="main">
+    <ul class="sides">
+        <li id="event" data-location="bottom" class="side side--bottom side--visible">
+            <div class="side__content">
+                <?php snippet('page-event', array('content' => $page)); ?>
+            </div>
+        </li>
+    </ul>
+</main>
 
 <?php EF::snippet_if_not_ajax('footer'); ?>

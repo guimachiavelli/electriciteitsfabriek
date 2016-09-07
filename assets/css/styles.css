@@ -105,6 +105,11 @@ a {
   a:hover {
     text-decoration: none; }
 
+img {
+  display: block;
+  width: 100%;
+  height: auto; }
+
 .menu {
   position: absolute;
   z-index: 10; }
@@ -288,6 +293,13 @@ a {
   bottom: 30px;
   right: 30px; }
 
+.site-section--event {
+  max-height: 75vh;
+  min-width: 250px;
+  width: 75%;
+  bottom: 30px;
+  right: 30px; }
+
 .site-section--contact {
   width: 75%;
   right: 30px; }
@@ -332,6 +344,44 @@ a {
   display: block; }
   .event__more:after {
     content: '…'; }
+
+.full-event {
+  overflow: hidden; }
+
+.full-event__column {
+  float: left; }
+
+.full-event__column--text {
+  width: 25%;
+  margin-right: 5%; }
+
+.full-event__column--media {
+  width: 70%; }
+  .full-event__column--media figure {
+    margin-bottom: 18px; }
+
+.full-event__header {
+  margin-bottom: 18px; }
+
+.full-event__title {
+  text-decoration: underline;
+  text-transform: uppercase;
+  padding-left: 1.5em; }
+
+.full-event__artists {
+  padding-left: 1.5em; }
+
+.full-event__video {
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+  position: relative;
+  margin-bottom: 18px; }
+  .full-event__video iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; }
 
 .contact__column {
   width: 30%;

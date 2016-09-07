@@ -23,10 +23,12 @@ Text:
 Address: 
 
 Electriciteitsfabriek
-De Constant Rebecqueplein 20 2518 RA Den Haag
+De Constant Rebecqueplein 20 
+2518 RA Den Haag
 
 ## Postadres
-van Loostraat 71 2582 XB Den Haag
+van Loostraat 71 2582 
+XB Den Haag
 
 ----
 

@@ -4,6 +4,7 @@
   "description": "",
   "private": true,
   "dependencies": {
+    "navigo": "^2.2.0",
     "node-reset-scss": "^1.0.1"
   },
   "author": "gui machiavelli",
@@ -16,4 +17,3 @@
     "watch": "^0.16.0"
   }
 }
-

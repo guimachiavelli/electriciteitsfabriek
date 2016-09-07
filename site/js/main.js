@@ -1,26 +1,20 @@
 'use strict';
 
-var cube = {
-    POSITIONS: {
-        left: -90,
-        right: 90,
-        top: 90,
-        bottom: -90,
-    },
-    animateClass: 'side--will-animate',
-    transitionClass: 'sides--transition',
-    visibleClass: 'side--visible',
+var Navigo = require('navigo');
+
+var Cube = require('./cube');
+
+var Site = {
     activeMenuItemClass: 'menu-item__link--active',
 
-    init: function(menuEl, prismEl) {
-        this.menuEl = menuEl;
-        this.prismEl = prismEl;
-        this.containerEl = prismEl.querySelector('.sides');
+    init: function() {
+        this.menuEl = document.querySelector('.menu');
+        this.menuEl.addEventListener('click', this.route.bind(this));
 
-        this.menuEl.addEventListener('click', this.turn.bind(this));
+        this.cube = new Cube(document.querySelector('.cube'));
     },
 
-    turn: function(e) {
+    route: function(e) {
         var target, menuEl;
 
         if (e.target.nodeName.toLowerCase() !== 'a') {
@@ -36,7 +30,7 @@ var cube = {
             return;
         }
 
-        this.animate('#' + target);
+        this.cube.animate('#' + target);
         this.toggleActiveMenuItem(target);
     },
 
@@ -48,71 +42,6 @@ var cube = {
         lastURLFragment = href.pop();
 
         return lastURLFragment !== '' ? lastURLFragment : href.pop();
-    },
-
-    calculatedTransform: function(target, location) {
-        var axis, origin;
-
-        axis = (location === 'left' || location === 'right') ? 'Y' : 'X';
-
-        // XXX: translate the element because
-        //      transform-origin-z does not work in safari
-        switch (location) {
-            case 'left':
-                origin = 'translateZ(50vw) translateX(50vw)';
-                break;
-            case 'right':
-                origin = 'translateZ(50vw) translateX(-50vw)';
-                break;
-            case 'top':
-                origin = 'translateZ(50vh) translateY(50vh)';
-                break;
-            case 'bottom':
-                origin = 'translateZ(50vh) translateY(-50vh)';
-                break;
-        }
-
-        return origin + ' rotate' + axis + '(' + this.POSITIONS[location] + 'deg)';
-    },
-
-    animate: function(target) {
-        var targetEl, currentEl, location, axis;
-
-        targetEl = document.querySelector(target);
-        currentEl = document.querySelector('.' + this.visibleClass);
-
-        location = targetEl.getAttribute('data-location');
-        axis = (location === 'left' || location === 'right') ?
-               'horizontal' : 'vertical';
-
-        this.setupAnimation(targetEl, location, axis);
-
-        this.containerEl.style.transform = this.calculatedTransform(targetEl,
-                                                                    location);
-
-        setTimeout(this.resetAnimation.bind(this, targetEl, currentEl), 700);
-    },
-
-    setupAnimation: function(targetEl, location, axis) {
-        targetEl.classList.add('side--position-' + location);
-        targetEl.classList.add(this.animateClass);
-        this.containerEl.classList.add(this.transitionClass);
-        this.prismEl.classList.add('cube--transition-' + axis);
-    },
-
-    resetAnimation: function(targetEl, currentEl) {
-        targetEl.className = targetEl.className.replace(/side--position-.*/, '');
-        targetEl.classList.remove(this.animateClass);
-        this.containerEl.classList.remove(this.transitionClass);
-        this.prismEl.className = this.prismEl.className
-                                     .replace(/cube--transition-.*/, '');
-
-        if (currentEl) {
-            currentEl.classList.remove(this.visibleClass);
-        }
-
-        this.containerEl.style.transform = '';
-        targetEl.classList.add(this.visibleClass);
     },
 
     toggleActiveMenuItem: function(target) {
@@ -129,7 +58,6 @@ var cube = {
 
         targetEl.classList.add(this.activeMenuItemClass);
     }
-
 };
 
-cube.init(document.querySelector('.menu'), document.querySelector('.cube'));
+Site.init();

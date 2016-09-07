@@ -14,6 +14,7 @@ var Site = {
         var self = this;
 
         this.router.on({
+            '/agenda/:event': this.navigate.bind(self, 'event'),
             '/agenda': this.navigate.bind(self, 'agenda'),
             '/contact': this.navigate.bind(self, 'contact'),
             '/archive': this.navigate.bind(self, 'archive'),
@@ -25,7 +26,25 @@ var Site = {
         });
 
         this.menuEl.addEventListener('click', this.onMenuClick.bind(this));
+        this.bindEventClicks();
     },
+
+    navigate: function(target, params) {
+        if (params) {
+            this.fetch('/agenda/' + params.event,
+                       this.navigate.bind(this, target));
+            return;
+        }
+
+        if (!this.isPageLoaded(target) && target !== 'event') {
+            this.fetch(target, this.navigate.bind(this, target));
+            return;
+        }
+
+        this.cube.turn('#' + target);
+        this.toggleActiveMenuItem(target);
+    },
+
 
     onMenuClick: function(e) {
         var target, linkEl;
@@ -46,14 +65,40 @@ var Site = {
         this.router.navigate(target);
     },
 
-    navigate: function(target) {
-        if (!this.isPageLoaded(target)) {
-            this.fetch(target, this.navigate.bind(this, target));
-            return;
+    bindEventClicks: function() {
+        var events, i, len;
+
+        events = document.querySelectorAll('.event__link');
+
+        for (i = 0, len = events.length; i < len; i += 1) {
+            events[i].addEventListener('click', this.onEventClick.bind(this));
+        }
+    },
+
+    onEventClick: function(event) {
+        var el;
+
+        event.preventDefault();
+
+        el = event.target;
+
+        if (el.nodeName !== 'A') {
+            el = this.ancestorLink(el);
         }
 
-        this.cube.turn('#' + target);
-        this.toggleActiveMenuItem(target);
+        this.router.navigate(el.href, true);
+    },
+
+    ancestorLink: function(node) {
+        if (node.nodeName === 'A') {
+            return node;
+        }
+
+        if (!node.parentElement) {
+            return null;
+        }
+
+        return this.ancestorLink(node.parentElement);
     },
 
     isPageLoaded: function(target) {
@@ -71,7 +116,7 @@ var Site = {
     },
 
     onPageFetchSuccess: function(request, callback) {
-        var fragment;
+        var fragment, el;
 
         if (request.status < 200 && request.status >= 400) {
             return;
@@ -79,7 +124,18 @@ var Site = {
 
         fragment = document.createElement('div');
         fragment.innerHTML = request.responseText;
-        this.cube.containerEl.appendChild(fragment.querySelector('.side'));
+
+        el = fragment.querySelector('.side');
+
+        if (el.id === 'event') {
+            this.cube.containerEl.removeChild(document.querySelector('#' + el.id));
+        }
+
+        this.cube.containerEl.appendChild(el);
+
+        if (el && (el.id === 'agenda' || el.id === 'archive')) {
+            this.bindEventClicks();
+        }
 
         if (callback && typeof callback === 'function') {
             console.log('callback');
@@ -113,7 +169,9 @@ var Site = {
             currentItem.classList.remove(this.activeMenuItemClass);
         }
 
-        targetEl.classList.add(this.activeMenuItemClass);
+        if (targetEl) {
+            targetEl.classList.add(this.activeMenuItemClass);
+        }
     }
 };
 

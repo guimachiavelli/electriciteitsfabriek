@@ -154,6 +154,9 @@ a {
   color: black;
   text-transform: uppercase;
   text-decoration: none; }
+  .menu-item__link:hover {
+    background: black;
+    color: white; }
 
 .menu-item__link--active {
   background: black;

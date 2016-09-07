@@ -1,7 +1,11 @@
 'use strict';
 
 var Cube = function(prismEl) {
-    this.prismEl = prismEl;
+    if (!prismEl) {
+        return;
+    }
+
+    this.el = prismEl;
     this.containerEl = prismEl.querySelector('.sides');
 };
 
@@ -67,14 +71,14 @@ Cube.prototype.setupAnimation = function(targetEl, location, axis) {
     targetEl.classList.add('side--position-' + location);
     targetEl.classList.add(this.animateClass);
     this.containerEl.classList.add(this.transitionClass);
-    this.prismEl.classList.add('cube--transition-' + axis);
+    this.el.classList.add('cube--transition-' + axis);
 };
 
 Cube.prototype.resetAnimation = function(targetEl, currentEl) {
     targetEl.className = targetEl.className.replace(/side--position-.*/, '');
     targetEl.classList.remove(this.animateClass);
     this.containerEl.classList.remove(this.transitionClass);
-    this.prismEl.className = this.prismEl.className
+    this.el.className = this.el.className
                                  .replace(/cube--transition-.*/, '');
 
     if (currentEl) {

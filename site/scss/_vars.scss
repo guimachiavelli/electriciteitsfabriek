@@ -1,4 +1,4 @@
-$main-font: 'Times', 'Times New Roman', serif;
+$main-font: 'Gza Seminegra', 'Times', 'Times New Roman', serif;
 
 $baseline: 6px;
 $base-font-size: 5px;
@@ -67,4 +67,8 @@ $breakpoints: (
     }
 }
 
-
+@font-face {
+    font-family: Gza Seminegra;
+    src: url('../fonts/gza-seminegra-web.woff');
+    font-weight: 400;
+}

@@ -47,6 +47,11 @@ table {
   border-spacing: 0; }
 
 @font-face {
+  font-family: Gza Seminegra;
+  src: url("../fonts/gza-seminegra-web.woff");
+  font-weight: 400; }
+
+@font-face {
   font-family: 'icons';
   src: url("../fonts/icons.ttf?1l8vla") format("truetype"), url("../fonts/icons.woff?1l8vla") format("woff"), url("../fonts/icons.svg?1l8vla#icons") format("svg");
   font-weight: normal;
@@ -85,7 +90,7 @@ html {
 body {
   background-image: url(../images/front.jpeg);
   font-size: 15px;
-  font-family: "Times", "Times New Roman", serif;
+  font-family: "Gza Seminegra", "Times", "Times New Roman", serif;
   line-height: 18px; }
 
 p {

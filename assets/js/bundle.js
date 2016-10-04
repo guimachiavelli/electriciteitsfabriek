@@ -454,8 +454,12 @@ var Site = {
     },
 
     navigate: function(target, params) {
+        var path;
+
         if (params) {
-            this.fetch('/agenda/' + params.event,
+            //TODO: quick routing fix. remove when we have the final server
+            path = window.location.pathname.indexOf('ef') > -1 ? '/ef' : '';
+            this.fetch(path + '/agenda/' + params.event,
                        this.navigate.bind(this, target));
             return;
         }
@@ -542,7 +546,7 @@ var Site = {
     onPageFetchSuccess: function(request, callback) {
         var fragment, el, previousEvent;
 
-        if (request.status < 200 && request.status >= 400) {
+        if (request.status < 200 || request.status >= 400) {
             return;
         }
 
@@ -552,7 +556,7 @@ var Site = {
         el = fragment.querySelector('.side');
         previousEvent = document.querySelector('#event');
 
-        if (el.id === 'event' && previousEvent) {
+        if (el && el.id === 'event' && previousEvent) {
             this.cube.containerEl.removeChild(previousEvent);
         }
 

@@ -12,13 +12,13 @@ body {
     background-image: url(../images/front.jpeg);
     font-size: font-size(body);
     font-family: $main-font;
-    line-height: baselines(3);
+    line-height: baselines(2);
 }
 
 p {
     font-size: font-size(body);
-    line-height: baselines(3);
-    margin-bottom: baselines(3);
+    line-height: baselines(2);
+    margin-bottom: baselines(2);
 
     &:last-child {
         margin-bottom: 0;

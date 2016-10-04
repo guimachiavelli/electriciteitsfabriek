@@ -43,12 +43,13 @@
 .site-section--default {
     bottom: $menu-item-height;
     right: $menu-item-height;
-    width: 55%;
+    width: 50%;
     max-height: 70%;
     min-height: 300px;
 }
 
 .site-section__default-content {
     columns: 100px 2;
+    column-gap: 2em;
 }
 

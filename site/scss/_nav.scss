@@ -1,4 +1,4 @@
-$menu-item-height: baselines(5);
+$menu-item-height: baselines(4);
 
 .menu {
     position: absolute;
@@ -47,7 +47,7 @@ $menu-item-height: baselines(5);
     width: 100%;
     height: $menu-item-height;
     line-height: $menu-item-height;
-    font-size: 20px;
+    font-size: font-size(menu);
     color: black;
     text-transform: uppercase;
     text-decoration: none;

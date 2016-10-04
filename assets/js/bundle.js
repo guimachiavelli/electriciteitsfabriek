@@ -445,7 +445,7 @@ var Site = {
             '/about': this.navigate.bind(self, 'about'),
 
             '*': function(params) {
-                console.log();
+                console.log('404');
             }
         });
 
@@ -540,7 +540,7 @@ var Site = {
     },
 
     onPageFetchSuccess: function(request, callback) {
-        var fragment, el;
+        var fragment, el, previousEvent;
 
         if (request.status < 200 && request.status >= 400) {
             return;
@@ -550,9 +550,10 @@ var Site = {
         fragment.innerHTML = request.responseText;
 
         el = fragment.querySelector('.side');
+        previousEvent = document.querySelector('#event');
 
-        if (el.id === 'event') {
-            this.cube.containerEl.removeChild(document.querySelector('#' + el.id));
+        if (el.id === 'event' && previousEvent) {
+            this.cube.containerEl.removeChild(previousEvent);
         }
 
         this.cube.containerEl.appendChild(el);
@@ -562,13 +563,13 @@ var Site = {
         }
 
         if (callback && typeof callback === 'function') {
-            console.log('callback');
+            //console.log('callback');
             callback();
         }
     },
 
-    onPageFetchError: function() {
-
+    onPageFetchError: function(error) {
+        console.log(error);
     },
 
     linkTarget: function(target) {

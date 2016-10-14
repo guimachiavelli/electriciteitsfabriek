@@ -24,7 +24,7 @@ install: ./package.json
 	@npm install
 
 deploy:
-	rsync --verbose --progress -r $(BUILD_DIR)/* $(DEPLOY_TARGET)
+	rsync --verbose --progress --chown=webadmin:www-data -rpog $(BUILD_DIR)/* $(DEPLOY_TARGET)
 
 assets: $(JS_BUNDLE)/bundle.js $(CSS_DIR)/styles.css
 

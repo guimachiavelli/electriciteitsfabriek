@@ -1,6 +1,6 @@
 'use strict';
 
-var Cube = function(prismEl) {
+var Prism = function(prismEl) {
     if (!prismEl) {
         return;
     }
@@ -9,22 +9,22 @@ var Cube = function(prismEl) {
     this.containerEl = prismEl.querySelector('.sides');
 };
 
-Cube.prototype.POSITIONS = {
+Prism.prototype.POSITIONS = {
     left: -90,
     right: 90,
     top: 90,
     bottom: -90
 };
 
-Cube.prototype.animateClass = 'side--will-animate';
-Cube.prototype.transitionClass = 'sides--transition';
-Cube.prototype.visibleClass = 'side--visible';
+Prism.prototype.animateClass = 'side--will-animate';
+Prism.prototype.transitionClass = 'sides--transition';
+Prism.prototype.visibleClass = 'side--visible';
 
-Cube.prototype.turn = function(target) {
-    this.animate(target);
+Prism.prototype.turn = function(target, status) {
+    this.animate(target, status === 's' ? true : false);
 };
 
-Cube.prototype.calculatedTransform = function(target, location) {
+Prism.prototype.calculatedTransform = function(target, location) {
     var axis, origin;
 
     axis = (location === 'left' || location === 'right') ? 'Y' : 'X';
@@ -49,8 +49,10 @@ Cube.prototype.calculatedTransform = function(target, location) {
     return origin + ' rotate' + axis + '(' + this.POSITIONS[location] + 'deg)';
 };
 
-Cube.prototype.animate = function(target) {
-    var targetEl, currentEl, location, axis;
+Prism.prototype.animate = function(target, immediate) {
+    var targetEl, currentEl, location, axis, timeout;
+
+    timeout = immediate === true ? 1 : 700;
 
     targetEl = document.querySelector(target);
     currentEl = document.querySelector('.' + this.visibleClass);
@@ -63,18 +65,17 @@ Cube.prototype.animate = function(target) {
 
     this.containerEl.style.transform = this.calculatedTransform(targetEl,
                                                                 location);
-
-    setTimeout(this.resetAnimation.bind(this, targetEl, currentEl), 700);
+    setTimeout(this.resetAnimation.bind(this, targetEl, currentEl), timeout);
 };
 
-Cube.prototype.setupAnimation = function(targetEl, location, axis) {
+Prism.prototype.setupAnimation = function(targetEl, location, axis) {
     targetEl.classList.add('side--position-' + location);
     targetEl.classList.add(this.animateClass);
     this.containerEl.classList.add(this.transitionClass);
     this.el.classList.add('cube--transition-' + axis);
 };
 
-Cube.prototype.resetAnimation = function(targetEl, currentEl) {
+Prism.prototype.resetAnimation = function(targetEl, currentEl) {
     targetEl.className = targetEl.className.replace(/side--position-.*/, '');
     targetEl.classList.remove(this.animateClass);
     this.containerEl.classList.remove(this.transitionClass);
@@ -89,4 +90,9 @@ Cube.prototype.resetAnimation = function(targetEl, currentEl) {
     targetEl.classList.add(this.visibleClass);
 };
 
-module.exports = Cube;
+Prism.prototype.beaconStatus = function() {
+
+
+};
+
+module.exports = Prism;

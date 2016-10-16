@@ -330,7 +330,25 @@ return /******/ (function(modules) { // webpackBootstrap
 },{}],2:[function(require,module,exports){
 'use strict';
 
-var Cube = function(prismEl) {
+function Beacon(el) {
+    this.el = el;
+    this.computedStyles = window.getComputedStyle(this.el, ':before');
+}
+
+Beacon.prototype.status = function() {
+    if (this.computedStyles.length < 1) {
+        return null;
+    }
+
+    return this.computedStyles.content;
+};
+
+module.exports = Beacon;
+
+},{}],3:[function(require,module,exports){
+'use strict';
+
+var Prism = function(prismEl) {
     if (!prismEl) {
         return;
     }
@@ -339,22 +357,22 @@ var Cube = function(prismEl) {
     this.containerEl = prismEl.querySelector('.sides');
 };
 
-Cube.prototype.POSITIONS = {
+Prism.prototype.POSITIONS = {
     left: -90,
     right: 90,
     top: 90,
     bottom: -90
 };
 
-Cube.prototype.animateClass = 'side--will-animate';
-Cube.prototype.transitionClass = 'sides--transition';
-Cube.prototype.visibleClass = 'side--visible';
+Prism.prototype.animateClass = 'side--will-animate';
+Prism.prototype.transitionClass = 'sides--transition';
+Prism.prototype.visibleClass = 'side--visible';
 
-Cube.prototype.turn = function(target) {
-    this.animate(target);
+Prism.prototype.turn = function(target, status) {
+    this.animate(target, status === 's' ? true : false);
 };
 
-Cube.prototype.calculatedTransform = function(target, location) {
+Prism.prototype.calculatedTransform = function(target, location) {
     var axis, origin;
 
     axis = (location === 'left' || location === 'right') ? 'Y' : 'X';
@@ -379,8 +397,10 @@ Cube.prototype.calculatedTransform = function(target, location) {
     return origin + ' rotate' + axis + '(' + this.POSITIONS[location] + 'deg)';
 };
 
-Cube.prototype.animate = function(target) {
-    var targetEl, currentEl, location, axis;
+Prism.prototype.animate = function(target, immediate) {
+    var targetEl, currentEl, location, axis, timeout;
+
+    timeout = immediate === true ? 1 : 700;
 
     targetEl = document.querySelector(target);
     currentEl = document.querySelector('.' + this.visibleClass);
@@ -393,18 +413,17 @@ Cube.prototype.animate = function(target) {
 
     this.containerEl.style.transform = this.calculatedTransform(targetEl,
                                                                 location);
-
-    setTimeout(this.resetAnimation.bind(this, targetEl, currentEl), 700);
+    setTimeout(this.resetAnimation.bind(this, targetEl, currentEl), timeout);
 };
 
-Cube.prototype.setupAnimation = function(targetEl, location, axis) {
+Prism.prototype.setupAnimation = function(targetEl, location, axis) {
     targetEl.classList.add('side--position-' + location);
     targetEl.classList.add(this.animateClass);
     this.containerEl.classList.add(this.transitionClass);
     this.el.classList.add('cube--transition-' + axis);
 };
 
-Cube.prototype.resetAnimation = function(targetEl, currentEl) {
+Prism.prototype.resetAnimation = function(targetEl, currentEl) {
     targetEl.className = targetEl.className.replace(/side--position-.*/, '');
     targetEl.classList.remove(this.animateClass);
     this.containerEl.classList.remove(this.transitionClass);
@@ -419,22 +438,30 @@ Cube.prototype.resetAnimation = function(targetEl, currentEl) {
     targetEl.classList.add(this.visibleClass);
 };
 
-module.exports = Cube;
+Prism.prototype.beaconStatus = function() {
 
-},{}],3:[function(require,module,exports){
+
+};
+
+module.exports = Prism;
+
+},{}],4:[function(require,module,exports){
 'use strict';
 
 var Navigo = require('navigo');
 
-var Cube = require('./cube');
+var Cube = require('./cube'),
+    Beacon = require('./beacon');
 
 var Site = {
     activeMenuItemClass: 'menu-item__link--active',
 
     init: function() {
         this.menuEl = document.querySelector('.menu');
+        this.menuButton = document.querySelector('.menu__button');
         this.cube = new Cube(document.querySelector('.cube'));
         this.router = new Navigo();
+        this.beacon = new Beacon(document.querySelector('.beacon'));
         var self = this;
 
         this.router.on({
@@ -443,13 +470,11 @@ var Site = {
             '/contact': this.navigate.bind(self, 'contact'),
             '/archive': this.navigate.bind(self, 'archive'),
             '/about': this.navigate.bind(self, 'about'),
-
-            '*': function(params) {
-                console.log('404');
-            }
         });
 
         this.menuEl.addEventListener('click', this.onMenuClick.bind(this));
+        this.menuButton.addEventListener('click',
+                                         this.onMenuButtonClick.bind(this));
         this.bindEventClicks();
     },
 
@@ -469,13 +494,23 @@ var Site = {
             return;
         }
 
-        this.cube.turn('#' + target);
+        this.cube.turn('#' + target, this.beacon.status());
         this.toggleActiveMenuItem(target);
+    },
+
+    onMenuButtonClick: function(event) {
+        event.preventDefault();
+        this.menuEl.classList.add('menu--active');
     },
 
 
     onMenuClick: function(e) {
         var target, linkEl;
+
+        if (e.target.nodeName.toLowerCase() !== 'button' &&
+            this.menuEl.classList.contains('menu--active')) {
+            this.menuEl.classList.remove('menu--active');
+        }
 
         if (e.target.nodeName.toLowerCase() !== 'a') {
             return;
@@ -606,4 +641,4 @@ var Site = {
 
 Site.init();
 
-},{"./cube":2,"navigo":1}]},{},[3]);
+},{"./beacon":2,"./cube":3,"navigo":1}]},{},[4]);

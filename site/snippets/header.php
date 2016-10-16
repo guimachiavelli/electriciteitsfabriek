@@ -12,9 +12,9 @@
     </head>
 
     <body>
-        <header class="" role="banner">
-            <a class="" href="<?php echo url() ?>">
-                EF
+        <header class="site-header" role="banner">
+            <a class="site-title" href="<?php echo url() ?>">
+                De Electriciteitsfabriek
             </a>
 
             <?php snippet('menu') ?>

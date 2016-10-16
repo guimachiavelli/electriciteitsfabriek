@@ -3,15 +3,15 @@ html {
 }
 
 *,
-*:after,
-*:before {
+*::after,
+*::before {
     box-sizing: inherit;
 }
 
 body {
-    background-image: url(../images/front.jpeg);
-    font-size: font-size(body);
+    background: colour(white);
     font-family: $main-font;
+    font-size: font-size(body);
     line-height: baselines(2);
 }
 
@@ -25,7 +25,8 @@ p {
     }
 }
 
-h1, h2 {
+h1,
+h2 {
     text-transform: uppercase;
 }
 
@@ -43,6 +44,29 @@ a {
 
 img {
     display: block;
-    width: 100%;
     height: auto;
+    width: 100%;
+}
+
+.beacon {
+    clip: rect(0, 0, 0, 0);
+    height: 0;
+    position: absolute;
+    width: 0;
+
+    &::before {
+        content: 's';
+    }
+}
+
+
+@media(min-width: breakpoint(tablet)) {
+    body {
+        background-image: url('../images/front.jpeg');
+    }
+
+    .beacon::before {
+        content: 'm';
+    }
+
 }

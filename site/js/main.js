@@ -2,15 +2,18 @@
 
 var Navigo = require('navigo');
 
-var Cube = require('./cube');
+var Cube = require('./cube'),
+    Beacon = require('./beacon');
 
 var Site = {
     activeMenuItemClass: 'menu-item__link--active',
 
     init: function() {
         this.menuEl = document.querySelector('.menu');
+        this.menuButton = document.querySelector('.menu__button');
         this.cube = new Cube(document.querySelector('.cube'));
         this.router = new Navigo();
+        this.beacon = new Beacon(document.querySelector('.beacon'));
         var self = this;
 
         this.router.on({
@@ -19,13 +22,11 @@ var Site = {
             '/contact': this.navigate.bind(self, 'contact'),
             '/archive': this.navigate.bind(self, 'archive'),
             '/about': this.navigate.bind(self, 'about'),
-
-            '*': function(params) {
-                console.log('404');
-            }
         });
 
         this.menuEl.addEventListener('click', this.onMenuClick.bind(this));
+        this.menuButton.addEventListener('click',
+                                         this.onMenuButtonClick.bind(this));
         this.bindEventClicks();
     },
 
@@ -45,13 +46,23 @@ var Site = {
             return;
         }
 
-        this.cube.turn('#' + target);
+        this.cube.turn('#' + target, this.beacon.status());
         this.toggleActiveMenuItem(target);
+    },
+
+    onMenuButtonClick: function(event) {
+        event.preventDefault();
+        this.menuEl.classList.add('menu--active');
     },
 
 
     onMenuClick: function(e) {
         var target, linkEl;
+
+        if (e.target.nodeName.toLowerCase() !== 'button' &&
+            this.menuEl.classList.contains('menu--active')) {
+            this.menuEl.classList.remove('menu--active');
+        }
 
         if (e.target.nodeName.toLowerCase() !== 'a') {
             return;

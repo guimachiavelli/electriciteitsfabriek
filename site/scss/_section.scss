@@ -1,55 +1,73 @@
 .site-section {
-    color: colour(black);
     background: colour(white);
-    padding: baselines(3);
+    color: colour(black);
     overflow: auto;
-    position: absolute;
+    padding: baselines(3);
+    width: 100%;
 }
 
 .site-section__header {
     height: 0;
-    width: 0;
     overflow: hidden;
-}
-
-.site-section--agenda {
-    width: 20%;
-    max-height: 75vh;
-    min-width: 250px;
+    width: 0;
 }
 
 .site-section--archive {
-    max-height: 75vh;
-    min-height: 300px;
-    min-width: 250px;
-    width: 20%;
     bottom: $menu-item-height;
     right: $menu-item-height;
 }
 
 .site-section--event {
-    max-height: 75vh;
-    min-width: 250px;
-    width: 75%;
     bottom: $menu-item-height;
     right: $menu-item-height;
 }
 
 .site-section--contact {
-    width: 75%;
     right: $menu-item-height;
 }
 
 .site-section--default {
     bottom: $menu-item-height;
     right: $menu-item-height;
-    width: 50%;
-    max-height: 70%;
-    min-height: 300px;
 }
 
-.site-section__default-content {
-    columns: 100px 2;
-    column-gap: 2em;
-}
+@media(min-width: breakpoint(tablet)) {
+    .site-section {
+        position: absolute;
+    }
 
+    .site-section__default-content {
+        column-gap: 2em;
+        columns: 100px 2;
+    }
+
+    .site-section--default {
+        max-height: 70%;
+        min-height: 300px;
+        width: 50%;
+    }
+
+    .site-section--agenda {
+        max-height: 75vh;
+        min-width: 250px;
+        width: 20%;
+    }
+
+    .site-section--archive {
+        max-height: 75vh;
+        min-height: 300px;
+        min-width: 250px;
+        width: 20%;
+    }
+
+    .site-section--contact {
+        width: 75%;
+    }
+
+    .site-section--event {
+        max-height: 75vh;
+        min-width: 250px;
+        width: 75%;
+    }
+
+}

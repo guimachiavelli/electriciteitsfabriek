@@ -1,69 +1,253 @@
 $menu-item-height: baselines(4);
 
+.site-header {
+    padding: baselines(3);
+}
+
+.site-title {
+    display: inline;
+    text-decoration: none;
+}
+
 .menu {
-    position: absolute;
+    display: inline;
+}
+
+.menu__button {
+    -webkit-appearance: none;
+    background: none;
+    border: 0;
+    position: relative;
     z-index: 10;
-}
+    font-family: $main-font;
+    float: right;
+    cursor: pointer;
+    font-size: font-size(body);
 
-.menu-item {
-    position: fixed;
-    width: 100%;
-    height: $menu-item-height;
-    padding: 0 $menu-item-height;
-    box-sizing: border-box;
-    list-style: none;
-    text-align: center;
-}
-
-.menu-item--agenda {
-    left: 0;
-    top: -$menu-item-height;
-    width: 100vh;
-    transform: rotateZ(90deg);
-    transform-origin: 0 100%;
-}
-
-.menu-item--about {
-    bottom: 0;
-    left: 0;
-}
-
-.menu-item--archive {
-    top: -$menu-item-height;
-    right: 0;
-    width: 100vh;
-    transform: rotateZ(-90deg);
-    transform-origin: 100% 100%;
-}
-
-.menu-item--contact {
-    top: 0;
-    left: 0;
+    &:focus {
+        outline: 0;
+    }
 }
 
 .menu-item__link {
-    background: white;
     display: block;
-    width: 100%;
-    height: $menu-item-height;
-    line-height: $menu-item-height;
     font-size: font-size(menu);
-    color: black;
     text-transform: uppercase;
     text-decoration: none;
+    color: colour(white);
 
-    &:hover {
-        background: black;
+    &:visited {
         color: colour(white);
     }
 }
 
-.menu-item__link--active {
-    background: black;
-    color: colour(white);
-    cursor: default;
 
-    &:visited {
+@media(max-width: breakpoint(tablet)) {
+    $menu-item-height-mobile: 33vw;
+    $border-thickness: 5vw;
+    $square-size: 5vw;
+    $font-size: 4vw;
+
+    .menu-items {
+        background: colour(black);
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transition: opacity 200ms;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        white-space: nowrap;
+
+        &::before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            margin-right: -0.25em; /* Adjusts for spacing */
+
+        }
+    }
+
+    .menu-items__list {
+        display: inline-block;
+        vertical-align: middle;
+        width: 100vw;
+        position: relative;
+        height: 33vw * 3;
+    }
+
+    .menu--active {
+        .menu-items {
+            opacity: 1;
+            pointer-events: initial;
+        }
+
+        .menu__button {
+            display: none;
+        }
+    }
+
+    .menu-item {
+        border: $border-thickness solid colour(white);
+        position: absolute;
+        text-align: center;
+        width: $menu-item-height-mobile;
+        height: $menu-item-height-mobile;
+
+        &::before,
+        &::after {
+            background: colour(black);
+            content: '';
+            height: $square-size;
+            left: -$square-size;
+            position: absolute;
+            top: -$square-size;
+            width: $square-size;
+            box-shadow: 0 0 0 1px colour(black);
+        }
+
+        &::after {
+            left: auto;
+            right: -$square-size;
+        }
+    }
+
+    .menu-item__link {
+        display: block;
+        line-height: $menu-item-height-mobile - ($border-thickness * 2);
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        font-size: $font-size;
+
+        &::before,
+        &::after {
+            background: colour(black);
+            content: '';
+            height: $square-size;
+            left: -$square-size;
+            position: absolute;
+            bottom: -$square-size;
+            width: $square-size;
+            box-shadow: 0 0 0 1px colour(black);
+        }
+
+        &::after {
+            right: -$square-size;
+            left: auto;
+        }
+    }
+
+    //$menu-item-height-mobile: 33vw;
+    //$border-thickness: 5vw;
+    .menu-item--contact {
+        top: 0;
+        left: ($menu-item-height-mobile * 1) + ($border-thickness * 0);
+    }
+
+    .menu-item--agenda {
+        top: ($menu-item-height-mobile * 1) + ($border-thickness * -1);
+        left: $border-thickness;
+    }
+
+    .menu-item--archive {
+        top: ($menu-item-height-mobile * 1) + ($border-thickness * -1);
+        left: ($menu-item-height-mobile * 2) + ($border-thickness * -1);
+    }
+
+    .menu-item--about {
+        top: ($menu-item-height-mobile * 2) + ($border-thickness * -2);
+        left: ($menu-item-height-mobile * 1) + ($border-thickness * 0);
+    }
+
+}
+
+
+@media(min-width: breakpoint(tablet)) {
+    .menu {
+        position: absolute;
+        z-index: 10;
+    }
+
+    .site-title,
+    .menu__button {
+        display: none;
+    }
+
+    .menu-items {
+        opacity: 1;
+    }
+
+    .menu-item {
+        position: fixed;
+        width: 100%;
+        height: $menu-item-height;
+        padding: 0 $menu-item-height;
+        box-sizing: border-box;
+        list-style: none;
+        text-align: center;
+    }
+
+    .menu-item--agenda {
+        left: 0;
+        top: -$menu-item-height;
+        width: 100vh;
+        transform: rotateZ(90deg);
+        transform-origin: 0 100%;
+    }
+
+    .menu-item--about {
+        bottom: 0;
+        left: 0;
+    }
+
+    .menu-item--archive {
+        top: -$menu-item-height;
+        right: 0;
+        width: 100vh;
+        transform: rotateZ(-90deg);
+        transform-origin: 100% 100%;
+    }
+
+    .menu-item--contact {
+        top: 0;
+        left: 0;
+    }
+
+    .menu-item__link {
+        background: white;
+        width: 100%;
+        height: $menu-item-height;
+        line-height: $menu-item-height;
+        color: colour(black);
+
+        &:hover {
+            background: colour(black);
+            color: colour(white);
+        }
+
+        &:hover:visited {
+            color: colour(white);
+        }
+
+        &:visited {
+            color: colour(black);
+        }
+    }
+
+    .menu-item__link--active {
+        background: black;
         color: colour(white);
+        cursor: default;
+
+        &:visited {
+            color: colour(white);
+        }
     }
 }

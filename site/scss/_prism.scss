@@ -6,122 +6,124 @@ $side-height-padding: 0;
 $side-width: $prism-width + $side-width-padding;
 $side-height: $prism-height + $side-height-padding;
 
-.cube {
-    width: $prism-width;
-    height: $prism-height;
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-}
-
-.cube--transition-horizontal {
-    perspective: $prism-width;
-}
-
-.cube--transition-vertical {
-    perspective: $prism-height;
-}
-
-.sides {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.sides--transition {
-    transition: transform 700ms cubic-bezier(0.0, 0.0, 0.2, 1);
-}
-
-.sides-transition--vertical {
-
-}
-
 .side {
-    position: absolute;
-    width: 100%;
+    display: none;
     height: 100%;
+    left: 0;
     margin: 0;
     padding: 0;
-    color: white;
-    background-size: cover;
-    display: none;
-    top: $side-height-padding/-2;
-    left: $side-width-padding/-2;
-    background-repeat: repeat;
-    background-position: center;
-}
-
-.side__content {
-    max-width: 100vw;
-    max-height: 100vh;
-    margin: $side-height-padding/2 0 0 $side-width-padding/2;
-    padding: $menu-item-height;
-}
-
-.side--will-animate {
-    display: block;
-    will-change: transform;
-    z-index: 100000;
+    top: 0;
+    width: 100%;
 }
 
 .side--visible {
     display: block;
 }
 
-.side--front {
-    background-image: url(../images/front.jpeg);
-}
+@media(min-width: breakpoint(tablet)) {
+    .cube {
+        height: $prism-height;
+        left: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        width: $prism-width;
+    }
 
-.side--back {
-    background-image: url(../images/back.jpeg);
-}
+    .cube--transition-horizontal {
+        perspective: $prism-width;
+    }
 
-.side--left {
-    background-image: url(../images/left.jpeg);
-}
+    .cube--transition-vertical {
+        perspective: $prism-height;
+    }
 
-.side--right {
-    background-image: url(../images/right.jpeg);
-}
+    .sides {
+        height: 100%;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        transform-style: preserve-3d;
+        width: 100%;
+    }
 
-.side--top {
-    background-image: url(../images/top.jpeg);
-}
+    .sides--transition {
+        transition: transform 700ms cubic-bezier(0, 0, 0.2, 1);
+    }
 
-.side--bottom {
-    background-image: url(../images/bottom.jpeg);
-}
+    .side {
+        position: absolute;
+        background-position: center;
+        background-repeat: repeat;
+        background-size: cover;
+        left: ($side-width-padding / -2);
+        top: ($side-height-padding / -2);
+    }
 
-.side--position-back {
-    transform: translateZ($prism-width) scale(1, -1);
-}
+    .side__content {
+        margin: ($side-height-padding / 2) 0 0 ($side-width-padding / 2);
+        max-height: 100vh;
+        max-width: 100vw;
+        padding: $menu-item-height;
+    }
 
-.side--position-right {
-    transform: translateZ(($prism-width/2))
-               translateX(($prism-width/2))
-               rotateY(-90deg);
-}
+    .side--will-animate {
+        display: block;
+        will-change: transform;
+        z-index: 100000;
+    }
 
-.side--position-left {
-    transform: translateZ(($prism-width/2))
-               translateX(-($prism-width/2))
-               rotateY(90deg);
-}
+    .side--front {
+        background-image: url(../images/front.jpeg);
+    }
+
+    .side--back {
+        background-image: url(../images/back.jpeg);
+    }
+
+    .side--left {
+        background-image: url(../images/left.jpeg);
+    }
+
+    .side--right {
+        background-image: url(../images/right.jpeg);
+    }
+
+    .side--top {
+        background-image: url(../images/top.jpeg);
+    }
+
+    .side--bottom {
+        background-image: url(../images/bottom.jpeg);
+    }
+
+    .side--position-back {
+        transform: translateZ($prism-width) scale(1, -1);
+    }
+
+    .side--position-right {
+        transform: translateZ(($prism-width/2))
+                translateX(($prism-width/2))
+                rotateY(-90deg);
+    }
+
+    .side--position-left {
+        transform: translateZ(($prism-width/2))
+                translateX(-($prism-width/2))
+                rotateY(90deg);
+    }
 
 
-.side--position-top {
-    transform: translateZ(($prism-height/2))
-               translateY(-($prism-height/2))
-               rotateX(-90deg);
-}
+    .side--position-top {
+        transform: translateZ(($prism-height/2))
+                translateY(-($prism-height/2))
+                rotateX(-90deg);
+    }
 
-.side--position-bottom {
-    transform: translateZ(($prism-height/2))
-               translateY(($prism-height/2))
-               rotateX(90deg);
+    .side--position-bottom {
+        transform: translateZ(($prism-height/2))
+                translateY(($prism-height/2))
+                rotateX(90deg);
+    }
 }

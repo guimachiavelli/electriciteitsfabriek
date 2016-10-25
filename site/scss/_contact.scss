@@ -9,6 +9,18 @@
     }
 }
 
+.contact__sponsor {
+    display: inline-block;
+    position: relative;
+    left: -6px;
+    top: -5px;
+    text-decoration: none;
+
+    img {
+        width: 35px;
+    }
+}
+
 .i__text-replacement {
     display: block;
     height: 0;
@@ -20,7 +32,11 @@
     .contact__column {
         float: left;
         margin-right: 1.5%;
-        width: 30%;
+        width: 32%;
+
+        a {
+            word-break: break-all;
+        }
 
         &:last-child {
             margin-right: 0;

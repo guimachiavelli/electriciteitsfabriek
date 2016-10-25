@@ -22,6 +22,11 @@
                     <b class="i__text-replacement">Twitter</b>
                 </a>
             <?php endif; ?>
+
+            <span class="contact__sponsor">
+                <img src="./assets/images/uniper.png" alt="uniper">
+            </span>
+
         </div>
 
         <div class="contact__column contact__column--board">

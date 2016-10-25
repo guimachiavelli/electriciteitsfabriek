@@ -90,13 +90,13 @@ html {
 body {
   background: white;
   font-family: "Gza Seminegra", "Times", "Times New Roman", serif;
-  font-size: 14px;
-  line-height: 16px; }
+  font-size: 16px;
+  line-height: 18px; }
 
 p {
-  font-size: 14px;
-  line-height: 16px;
-  margin-bottom: 16px; }
+  font-size: 16px;
+  line-height: 18px;
+  margin-bottom: 18px; }
   p:last-child {
     margin-bottom: 0; }
 
@@ -180,14 +180,14 @@ img {
   font-family: "Gza Seminegra", "Times", "Times New Roman", serif;
   float: right;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 16px; }
   .menu__button:focus {
     outline: 0; }
 
 .menu-item__link {
   display: block;
-  font-size: 21px;
+  font-size: 24px;
   text-transform: uppercase;
   text-decoration: none;
   color: white; }
@@ -453,12 +453,12 @@ img {
   .site-section {
     position: absolute; }
   .site-section__default-content {
-    -webkit-column-gap: 2em;
-       -moz-column-gap: 2em;
-            column-gap: 2em;
-    -webkit-columns: 100px 2;
-       -moz-columns: 100px 2;
-            columns: 100px 2; }
+    -webkit-column-gap: 1.5%;
+       -moz-column-gap: 1.5%;
+            column-gap: 1.5%;
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2; }
   .site-section--default {
     max-height: 70%;
     min-height: 300px;
@@ -466,12 +466,12 @@ img {
   .site-section--agenda {
     max-height: 75vh;
     min-width: 250px;
-    width: 20%; }
+    width: 25%; }
   .site-section--archive {
     max-height: 75vh;
     min-height: 300px;
     min-width: 250px;
-    width: 20%; }
+    width: 25%; }
   .site-section--contact {
     width: 75%; }
   .site-section--event {
@@ -557,6 +557,15 @@ img {
     font-size: 35px;
     text-decoration: none; }
 
+.contact__sponsor {
+  display: inline-block;
+  position: relative;
+  left: -6px;
+  top: -5px;
+  text-decoration: none; }
+  .contact__sponsor img {
+    width: 35px; }
+
 .i__text-replacement {
   display: block;
   height: 0;
@@ -567,6 +576,8 @@ img {
   .contact__column {
     float: left;
     margin-right: 1.5%;
-    width: 30%; }
+    width: 32%; }
+    .contact__column a {
+      word-break: break-all; }
     .contact__column:last-child {
       margin-right: 0; } }

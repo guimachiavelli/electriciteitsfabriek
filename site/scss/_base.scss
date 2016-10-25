@@ -12,13 +12,13 @@ body {
     background: colour(white);
     font-family: $main-font;
     font-size: font-size(body);
-    line-height: baselines(2);
+    line-height: baselines(2.25);
 }
 
 p {
     font-size: font-size(body);
-    line-height: baselines(2);
-    margin-bottom: baselines(2);
+    line-height: baselines(2.25);
+    margin-bottom: baselines(2.25);
 
     &:last-child {
         margin-bottom: 0;
@@ -58,7 +58,6 @@ img {
         content: 's';
     }
 }
-
 
 @media(min-width: breakpoint(tablet)) {
     body {

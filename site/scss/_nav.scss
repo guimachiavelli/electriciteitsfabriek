@@ -23,6 +23,7 @@ $menu-item-height: baselines(4);
     float: right;
     cursor: pointer;
     font-size: font-size(body);
+    line-height: 16px;
 
     &:focus {
         outline: 0;

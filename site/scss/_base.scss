@@ -69,4 +69,45 @@ img {
         content: 'm';
     }
 
+    .js.intro-active {
+        .wrapper {
+            transform: scale(3);
+            transition: all 1500ms linear 1000ms;
+            height: 100vh;
+        }
+
+        .site-header {
+            position: absolute;
+        }
+
+        .intro {
+            background: colour(black);
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            transition: all 1500ms linear 1000ms;
+            opacity: 1;
+            transform: translateZ(0);
+        }
+
+        .intro__logo {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) translateZ(0) scale(0.33);
+        }
+
+        .menu-items.menu-items {
+            opacity: 0;
+        }
+
+        .menu--active{
+            .menu-items {
+                opacity: 1;
+            }
+        }
+    }
 }

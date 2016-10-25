@@ -340,7 +340,7 @@ Beacon.prototype.status = function() {
         return null;
     }
 
-    return this.computedStyles.content;
+    return this.computedStyles.getPropertyValue('content').replace(/"/g, '');
 };
 
 module.exports = Beacon;
@@ -438,11 +438,6 @@ Prism.prototype.resetAnimation = function(targetEl, currentEl) {
     targetEl.classList.add(this.visibleClass);
 };
 
-Prism.prototype.beaconStatus = function() {
-
-
-};
-
 module.exports = Prism;
 
 },{}],4:[function(require,module,exports){
@@ -457,12 +452,13 @@ var Site = {
     activeMenuItemClass: 'menu-item__link--active',
 
     init: function() {
+        var self = this;
+
         this.menuEl = document.querySelector('.menu');
         this.menuButton = document.querySelector('.menu__button');
         this.cube = new Cube(document.querySelector('.cube'));
         this.router = new Navigo();
         this.beacon = new Beacon(document.querySelector('.beacon'));
-        var self = this;
 
         this.router.on({
             '/agenda/:event': this.navigate.bind(self, 'event'),
@@ -476,6 +472,34 @@ var Site = {
         this.menuButton.addEventListener('click',
                                          this.onMenuButtonClick.bind(this));
         this.bindEventClicks();
+
+        this.intro();
+    },
+
+    intro: function() {
+        var intro = document.querySelector('.intro'),
+            wrapper = document.querySelector('.wrapper'),
+            body = document.body,
+            menu = this.menuEl,
+            mobile = this.beacon.status() === 's',
+            self = this;
+
+        if (intro === null) {
+            return;
+        }
+
+        wrapper.style.transform = 'none';
+        intro.style.opacity = 0;
+
+        setTimeout(function(){
+            if (!mobile) {
+                menu.classList.add('menu--active');
+            }
+
+            self.navigate('agenda');
+            wrapper.removeChild(intro);
+            body.classList.remove('intro-active');
+        },  mobile ? 0 : 2500);
     },
 
     navigate: function(target, params) {

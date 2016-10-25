@@ -10,7 +10,7 @@ Beacon.prototype.status = function() {
         return null;
     }
 
-    return this.computedStyles.content;
+    return this.computedStyles.getPropertyValue('content').replace(/"/g, '');
 };
 
 module.exports = Beacon;

@@ -30,4 +30,8 @@ class EF {
 
         return $link->isOpen() ? 'menu-item__link--active' : '';
     }
+
+    public static function intro_active_class($page) {
+        return $page->slug() === 'home' ? 'intro-active' : '';
+    }
 }

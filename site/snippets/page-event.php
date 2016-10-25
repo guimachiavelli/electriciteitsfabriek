@@ -21,7 +21,7 @@
             </header>
 
             <div class="full-event__content">
-                <?php echo $content->text()->html(); ?>
+                <?php echo $content->text()->kirbytext(); ?>
             </div>
         </div>
         <div class="full-event__column full-event__column--media">

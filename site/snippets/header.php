@@ -11,7 +11,12 @@
         <?php echo css('assets/css/styles.css'); ?>
     </head>
 
-    <body>
+        <body class="no-js <?php echo EF::intro_active_class($page); ?>">
+        <script>
+            document.body.classList.remove('no-js');
+            document.body.classList.add('js');
+        </script>
+
         <header class="site-header" role="banner">
             <a class="site-title" href="<?php echo url() ?>">
                 De Electriciteitsfabriek
@@ -19,3 +24,5 @@
 
             <?php snippet('menu') ?>
         </header>
+
+        <div class="wrapper">

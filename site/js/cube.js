@@ -90,9 +90,4 @@ Prism.prototype.resetAnimation = function(targetEl, currentEl) {
     targetEl.classList.add(this.visibleClass);
 };
 
-Prism.prototype.beaconStatus = function() {
-
-
-};
-
 module.exports = Prism;

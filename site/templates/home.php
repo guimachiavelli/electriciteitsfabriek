@@ -1,8 +1,15 @@
 <?php EF::snippet_if_not_ajax('header'); ?>
+<div class="intro">
+    <div class="intro__logo">
+        <img src="./assets/images/logo.svg" alt="De Electriciteitsfabriek">
+    </div>
+</div>
 
 <main class="cube" role="main">
     <ul class="sides">
-        <li class="side side--front side--visible"></li>
+        <li class="side side--front side--visible">
+            <div class="side__content"></div>
+        </li>
 
         <li id="agenda" data-location="left" class="side side--left">
             <div class="side__content">

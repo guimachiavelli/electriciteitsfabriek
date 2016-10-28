@@ -24,10 +24,6 @@
     padding-left: 1.5em;
 }
 
-.event__title--archived {
-    text-decoration: underline;
-}
-
 .event__author {
     padding-left: 1.5em;
 }
@@ -92,11 +88,11 @@
     }
 
     .full-event__column--text {
-        width: 25%;
-        margin-right: 5%;
+        width: 32%;
+        margin-right: 1.5%;
     }
 
     .full-event__column--media {
-        width: 70%;
+        width: 66.5%;
     }
 }

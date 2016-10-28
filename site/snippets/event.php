@@ -13,7 +13,11 @@
     </header>
 
     <p class="event__excerpt">
-        <?php echo $event->text()->ef_excerpt(); ?>
+        <?php if ($event->customexcerpt()->empty()): ?>
+            <?php echo $event->text()->ef_excerpt(); ?>
+        <?php else: ?>
+            <?php echo $event->customexcerpt()->ef_excerpt(); ?>
+        <?php endif; ?>
         <a class="event__more" href="<?php echo $event->url(); ?>">more</a>
     </p>
 </li>

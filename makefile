@@ -23,8 +23,11 @@ server:
 install: ./package.json
 	@npm install
 
-deploy:
-	rsync --verbose --progress --chown=webadmin:www-data -rpog $(BUILD_DIR)/* $(DEPLOY_TARGET)
+deploy-develop:
+	rsync --verbose --progress -r --exclude=$(BUILD_DIR)/site/accounts $(BUILD_DIR)/assets $(BUILD_DIR)/site $(DEPLOY_TARGET)
+
+remote-setup:
+	rsync --verbose --progress -r $(BUILD_DIR)/panel $(BUILD_DIR)/kirby $(BUILD_DIR)/index.php $(DEPLOY_TARGET)
 
 assets: $(JS_BUNDLE)/bundle.js $(CSS_DIR)/styles.css
 

@@ -2,7 +2,7 @@
 
 field::$methods['ef_excerpt'] = function($field) {
     $text = str::excerpt(kirbytext($field->value), 0);
-    $length = 80;
+    $length = 50;
 
     if(str_word_count($text, 0) < $length) {
         return $text;

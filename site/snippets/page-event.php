@@ -1,4 +1,4 @@
-<section class="site-section site-section--event">
+<section class="site-section site-section--event <?php echo $content->archived() == '1' ? 'site-section--event-archived' : ''; ?>">
     <header class="site-section__header">
         <h2 class="site-section__title">
             <?php echo $content->title()->html() ?>

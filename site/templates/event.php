@@ -5,7 +5,7 @@
         <?php $direction = $page->archived() == '1' ? 'right' : 'left'; ?>
         <li id="event"
             data-location="<?php echo $direction ?>"
-            class="side side--<?php echo $direction; ?> side--visible">
+            class="side side--back side--visible">
             <div class="side__content">
                 <?php snippet('page-event', array('content' => $page)); ?>
             </div>

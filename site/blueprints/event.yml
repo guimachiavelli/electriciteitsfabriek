@@ -17,6 +17,9 @@ fields:
       label: Time
       type: text
       width: 1/2
+  customexcerpt:
+    label: Excerpt
+    type:  textarea
   text:
     label: Text
     type:  textarea

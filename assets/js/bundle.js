@@ -499,7 +499,7 @@ var Site = {
             self.navigate('agenda');
             wrapper.removeChild(intro);
             body.classList.remove('intro-active');
-        },  mobile ? 0 : 2500);
+        },  mobile ? 0 : 2750);
     },
 
     navigate: function(target, params) {

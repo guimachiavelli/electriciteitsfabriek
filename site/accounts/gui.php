@@ -8,6 +8,7 @@ language: en
 role: admin
 history:
   - agenda/a-story-of-steel-and-silence
+  - about
   - contact
   - agenda/fratres-paert
   - home

@@ -19,6 +19,9 @@
 
 .site-section--event {
     bottom: $menu-item-height;
+}
+
+.site-section--event-archived {
     right: $menu-item-height;
 }
 
@@ -37,14 +40,14 @@
     }
 
     .site-section__default-content {
-        column-gap: 1.5%;
-        columns: 2;
+        column-gap: 2%;
+        columns: 3;
     }
 
     .site-section--default {
         max-height: 70%;
         min-height: 300px;
-        width: 50%;
+        width: 75%;
     }
 
     .site-section--agenda {

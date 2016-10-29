@@ -561,6 +561,9 @@ img {
   .full-event__column--media {
     width: 66.5%; } }
 
+.contact__column {
+  margin-bottom: 16px; }
+
 .contact__social {
   display: inline-block;
   margin-left: -6px;

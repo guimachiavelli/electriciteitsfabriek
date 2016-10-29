@@ -224,6 +224,19 @@ img {
     width: 100vw;
     position: relative;
     height: 99vw; }
+    .menu-items__list::after {
+      content: 'EF';
+      position: absolute;
+      top: 43vw;
+      left: 43vw;
+      color: white;
+      font-size: 3.5vw;
+      width: 33vw;
+      height: 33vw;
+      top: 28vw;
+      left: 33vw;
+      line-height: 23vw;
+      border: 5vw solid transparent; }
   .menu--active .menu-items {
     opacity: 1;
     pointer-events: initial; }
@@ -253,7 +266,7 @@ img {
     position: absolute;
     height: 100%;
     width: 100%;
-    font-size: 4vw; }
+    font-size: 3.5vw; }
     .menu-item__link::before, .menu-item__link::after {
       background: black;
       content: '';

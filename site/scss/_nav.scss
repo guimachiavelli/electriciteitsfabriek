@@ -46,7 +46,7 @@ $menu-item-height: baselines(4);
     $menu-item-height-mobile: 33vw;
     $border-thickness: 5vw;
     $square-size: 5vw;
-    $font-size: 4vw;
+    $font-size: 3.5vw;
 
     .menu-items {
         background: colour(black);
@@ -70,8 +70,8 @@ $menu-item-height: baselines(4);
             height: 100%;
             vertical-align: middle;
             margin-right: -0.25em; /* Adjusts for spacing */
-
         }
+
     }
 
     .menu-items__list {
@@ -80,6 +80,22 @@ $menu-item-height: baselines(4);
         width: 100vw;
         position: relative;
         height: 33vw * 3;
+
+        &::after {
+            content: 'EF';
+            position: absolute;
+            top: 33vw + 10vw;
+            left: 33vw + 10vw;
+            color: colour(white);
+            font-size: $font-size;
+            width: $menu-item-height-mobile;
+            height: $menu-item-height-mobile;
+            top: ($menu-item-height-mobile * 1) + ($border-thickness * -1);
+            left: ($menu-item-height-mobile * 1) + ($border-thickness * 0);
+            line-height: $menu-item-height-mobile - ($border-thickness * 2);
+            border: $border-thickness solid transparent;
+        }
+
     }
 
     .menu--active {
@@ -149,6 +165,9 @@ $menu-item-height: baselines(4);
     .menu-item--contact {
         top: 0;
         left: ($menu-item-height-mobile * 1) + ($border-thickness * 0);
+    }
+
+    .menu-item--agenda {
     }
 
     .menu-item--agenda {

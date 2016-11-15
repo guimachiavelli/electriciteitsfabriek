@@ -32,7 +32,7 @@ remote-setup:
 assets: $(JS_BUNDLE)/bundle.js $(CSS_DIR)/styles.css
 
 develop: $(SRC_DIR)
-	@$(BIN)/watch "make assets" $<
+	@$(BIN)/chokidar './site/js' './site/scss' -c '${MAKE} assets' $<
 
 $(JS_BUNDLE)/bundle.js: $(BROWSERIFY_DEPS)
 	@$(BIN)/browserify $< -o $@

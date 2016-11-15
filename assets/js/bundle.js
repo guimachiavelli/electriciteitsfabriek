@@ -505,15 +505,19 @@ var Site = {
         wrapper.style.transform = 'none';
         intro.style.opacity = 0;
 
+        if (mobile) {
+            self.navigate('agenda');
+        }
+
         setTimeout(function(){
             if (!mobile) {
                 menu.classList.add('menu--active');
+                self.navigate('agenda');
             }
 
-            self.navigate('agenda');
             wrapper.removeChild(intro);
             body.classList.remove('intro-active');
-        },  mobile ? 0 : 2750);
+        },  mobile ? 1250 : 2750);
     },
 
     navigate: function(target, params) {

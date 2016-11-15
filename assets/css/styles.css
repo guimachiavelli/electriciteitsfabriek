@@ -124,6 +124,30 @@ img {
   .beacon::before {
     content: 's'; }
 
+.js.intro-active .wrapper {
+  height: 100vh; }
+
+.js.intro-active .intro {
+  background: black;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  -webkit-transition: all 500ms linear 750ms;
+  transition: all 500ms linear 750ms;
+  opacity: 1;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0); }
+
+.js.intro-active .intro__logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%) translateZ(0) scale(1);
+          transform: translate(-50%, -50%) translateZ(0) scale(1); }
+
 @media (min-width: 768px) {
   body {
     background-image: url("../images/front.jpeg"); }
@@ -133,27 +157,13 @@ img {
     -webkit-transform: scale(3);
             transform: scale(3);
     -webkit-transition: all 1500ms linear 1000ms;
-    transition: all 1500ms linear 1000ms;
-    height: 100vh; }
+    transition: all 1500ms linear 1000ms; }
   .js.intro-active .site-header {
     position: absolute; }
   .js.intro-active .intro {
-    background: black;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
     -webkit-transition: all 1500ms linear 1000ms;
-    transition: all 1500ms linear 1000ms;
-    opacity: 1;
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0); }
+    transition: all 1500ms linear 1000ms; }
   .js.intro-active .intro__logo {
-    position: absolute;
-    left: 50%;
-    top: 50%;
     -webkit-transform: translate(-50%, -50%) translateZ(0) scale(0.33);
             transform: translate(-50%, -50%) translateZ(0) scale(0.33); }
   .js.intro-active .menu-items.menu-items {

@@ -216,80 +216,142 @@ img {
       display: inline-block;
       height: 100%;
       vertical-align: middle;
-      margin-right: -0.25em;
-      /* Adjusts for spacing */ }
+      margin-right: -0.25em; }
   .menu-items__list {
     display: inline-block;
     vertical-align: middle;
     width: 100vw;
-    position: relative;
-    height: 99vw; }
-    .menu-items__list::after {
-      content: 'EF';
+    position: relative; }
+    .menu-items__list::before, .menu-items__list::after {
+      content: 'E';
       position: absolute;
-      top: 43vw;
-      left: 43vw;
-      color: white;
-      font-size: 3.5vw;
-      width: 33vw;
-      height: 33vw;
-      top: 28vw;
-      left: 33vw;
-      line-height: 23vw;
-      border: 5vw solid transparent; }
+      color: white; }
+    .menu-items__list::before {
+      content: 'F'; }
   .menu--active .menu-items {
     opacity: 1;
     pointer-events: initial; }
   .menu--active .menu__button {
     display: none; }
   .menu-item {
-    border: 5vw solid white;
     position: absolute;
-    text-align: center;
-    width: 33vw;
-    height: 33vw; }
+    z-index: 1;
+    text-align: center; }
     .menu-item::before, .menu-item::after {
       background: black;
       content: '';
-      height: 5vw;
-      left: -5vw;
       position: absolute;
-      top: -5vw;
-      width: 5vw;
       box-shadow: 0 0 0 1px black; }
-    .menu-item::after {
-      left: auto;
-      right: -5vw; }
   .menu-item__link {
     display: block;
-    line-height: 23vw;
     position: absolute;
     height: 100%;
-    width: 100%;
-    font-size: 3.5vw; }
+    width: 100%; }
     .menu-item__link::before, .menu-item__link::after {
       background: black;
       content: '';
-      height: 5vw;
-      left: -5vw;
       position: absolute;
-      bottom: -5vw;
-      width: 5vw;
-      box-shadow: 0 0 0 1px black; }
+      box-shadow: 0 0 0 1px black; } }
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .menu-items__list {
+    height: 91vh;
+    width: 132vh; }
+    .menu-items__list::before, .menu-items__list::after {
+      font-size: 18vh;
+      width: 33vh;
+      height: 33vh;
+      top: 29vh;
+      left: 33vh;
+      line-height: 25vh;
+      border: 4vh solid white; }
+    .menu-items__list::before {
+      top: 29vh;
+      left: 62vh; }
+  .menu-item {
+    border: 4vh solid white;
+    width: 33vh;
+    height: 33vh; }
+    .menu-item::before, .menu-item::after {
+      height: 4vh;
+      left: -4vh;
+      top: -4vh;
+      width: 4vh; }
+    .menu-item::after {
+      left: auto;
+      right: -4vh; }
+  .menu-item__link {
+    line-height: 25vh;
+    font-size: 3.5vh; }
+    .menu-item__link::before, .menu-item__link::after {
+      height: 4vh;
+      left: -4vh;
+      bottom: -4vh;
+      width: 4vh; }
     .menu-item__link::after {
-      right: -5vw;
+      right: -4vh;
+      left: auto; }
+  .menu-item--contact {
+    top: 0;
+    left: 33vh; }
+  .menu-item--agenda {
+    top: 29vh;
+    left: 4vh; }
+  .menu-item--archive {
+    top: 29vh;
+    left: 91vh; }
+  .menu-item--about {
+    top: 58vh;
+    left: 62vh; } }
+
+@media (max-width: 768px) and (orientation: portrait) {
+  .menu-items__list {
+    height: 132vw; }
+    .menu-items__list::before, .menu-items__list::after {
+      font-size: 18vw;
+      width: 33vw;
+      height: 33vw;
+      top: 29vw;
+      left: 33vw;
+      line-height: 25vw;
+      border: 4vw solid white; }
+    .menu-items__list::before {
+      top: 58vw;
+      left: 33vw; }
+  .menu-item {
+    border: 4vw solid white;
+    width: 33vw;
+    height: 33vw; }
+    .menu-item::before, .menu-item::after {
+      height: 4vw;
+      left: -4vw;
+      top: -4vw;
+      width: 4vw; }
+    .menu-item::after {
+      left: auto;
+      right: -4vw; }
+  .menu-item__link {
+    line-height: 25vw;
+    font-size: 3.5vw; }
+    .menu-item__link::before, .menu-item__link::after {
+      height: 4vw;
+      left: -4vw;
+      bottom: -4vw;
+      width: 4vw; }
+    .menu-item__link::after {
+      right: -4vw;
       left: auto; }
   .menu-item--contact {
     top: 0;
     left: 33vw; }
   .menu-item--agenda {
-    top: 28vw;
-    left: 5vw; }
+    top: 29vw;
+    left: 4vw; }
   .menu-item--archive {
-    top: 28vw;
-    left: 61vw; }
+    top: 58vw;
+    left: 62vw; }
   .menu-item--about {
-    top: 56vw;
+    top: 87vw;
     left: 33vw; } }
 
 @media (min-width: 768px) {

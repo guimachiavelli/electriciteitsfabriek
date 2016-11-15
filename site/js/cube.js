@@ -20,8 +20,12 @@ Prism.prototype.animateClass = 'side--will-animate';
 Prism.prototype.transitionClass = 'sides--transition';
 Prism.prototype.visibleClass = 'side--visible';
 
-Prism.prototype.turn = function(target, status) {
-    this.animate(target, status === 's' ? true : false);
+Prism.prototype.turn = function(target, status, noTransform) {
+    var immediate;
+
+    immediate = status === 's' || noTransform ? true : false;
+
+    this.animate(target, immediate);
 };
 
 Prism.prototype.calculatedTransform = function(target, location) {
@@ -63,9 +67,19 @@ Prism.prototype.animate = function(target, immediate) {
 
     this.setupAnimation(targetEl, location, axis);
 
-    this.containerEl.style.transform = this.calculatedTransform(targetEl,
-                                                                location);
+    this.setTransform(this.containerEl, this.calculatedTransform(targetEl,
+                                                                 location));
+
     setTimeout(this.resetAnimation.bind(this, targetEl, currentEl), timeout);
+};
+
+Prism.prototype.setTransform = function(node, value) {
+    var property = 'Transform';
+    node.style['webkit' + property] = value;
+    node.style['moz' + property] = value;
+    node.style['ms' + property] = value;
+    node.style['o' + property] = value;
+    node.style[property.toLowerCase()] = value;
 };
 
 Prism.prototype.setupAnimation = function(targetEl, location, axis) {
@@ -86,7 +100,7 @@ Prism.prototype.resetAnimation = function(targetEl, currentEl) {
         currentEl.classList.remove(this.visibleClass);
     }
 
-    this.containerEl.style.transform = '';
+    this.setTransform(this.containerEl, '');
     targetEl.classList.add(this.visibleClass);
 };
 

@@ -39,4 +39,4 @@ $(JS_BUNDLE)/bundle.js: $(BROWSERIFY_DEPS)
 
 $(CSS_DIR)/styles.css: $(SASS_DEPS)
 	@$(BIN)/node-sass $< -o $(CSS_DIR)
-	@$(BIN)/postcss --use autoprefixer $@ -o $@
+	@$(BIN)/postcss --use autoprefixer --autoprefixer.browsers ">1%" $@ -o $@

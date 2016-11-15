@@ -16,9 +16,9 @@
                 </a>
             <?php endif; ?>
 
-            <?php if ($content->twitter()->isNotEmpty()): ?>
+            <?php if ($content->facebook()->isNotEmpty()): ?>
                 <a class="contact__social" href="<?php echo $content->twitter()->toURL(); ?>">
-                    <i class="i i--twitter"></i>
+                    <i class="i i--facebook"></i>
                     <b class="i__text-replacement">Twitter</b>
                 </a>
             <?php endif; ?>

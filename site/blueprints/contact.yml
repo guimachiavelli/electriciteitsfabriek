@@ -9,10 +9,10 @@ fields:
         type: text
         placeholder: "e.g.: https://www.instagram.com/themuseumofmodernart/"
         width: 1/2
-    twitter:
-        label: "Twitter timeline link"
+    facebook:
+        label: "Facebook link"
         type: text
-        placeholder: "e.g.: https://twitter.com/KimKierkegaard"
+        placeholder: "e.g.: https://www.facebook.com/yourpage"
         width: 1/2
     address:
         label: Address

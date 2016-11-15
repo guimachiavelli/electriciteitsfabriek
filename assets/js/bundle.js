@@ -667,7 +667,7 @@ var Site = {
         targetEl = document
                   .querySelector('.menu-item--' + target + ' .menu-item__link');
 
-        if (currentItem) {
+        if (target !== 'event' && currentItem) {
             currentItem.classList.remove(this.activeMenuItemClass);
         }
 

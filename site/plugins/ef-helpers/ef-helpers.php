@@ -23,9 +23,15 @@ class EF {
 
     public static function nav_active_class($link, $current) {
         if ($current->isChildOf('agenda')) {
-            if ($current->archived()->exists()) {
-                return '';
+            if ($current->archived() == '1' && $link->slug() == 'archive') {
+                return 'menu-item__link--active';
             }
+
+            if ($current->archived() == '0' && $link->slug() == 'agenda') {
+                return 'menu-item__link--active';
+            }
+
+            return;
         }
 
         return $link->isOpen() ? 'menu-item__link--active' : '';

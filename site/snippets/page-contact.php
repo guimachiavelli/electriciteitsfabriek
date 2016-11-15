@@ -23,9 +23,9 @@
                 </a>
             <?php endif; ?>
 
-            <span class="contact__sponsor">
+            <a href="http://uniper.nl"class="contact__sponsor">
                 <img src="./assets/images/uniper.png" alt="uniper">
-            </span>
+            </a>
 
         </div>
 

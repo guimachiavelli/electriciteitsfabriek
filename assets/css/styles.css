@@ -637,8 +637,8 @@ img {
 .contact__sponsor {
   display: inline-block;
   position: relative;
-  left: -6px;
-  top: -5px;
+  top: 4px;
+  float: right;
   text-decoration: none; }
   .contact__sponsor img {
     width: 35px; }

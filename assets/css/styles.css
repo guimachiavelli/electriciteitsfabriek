@@ -645,11 +645,10 @@ img {
     text-decoration: none; }
 
 .contact__sponsor {
-  display: inline-block;
+  display: block;
+  text-decoration: none;
   position: relative;
-  top: 4px;
-  float: right;
-  text-decoration: none; }
+  left: -5px; }
   .contact__sponsor img {
     width: 35px; }
 

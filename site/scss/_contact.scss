@@ -14,11 +14,10 @@
 }
 
 .contact__sponsor {
-    display: inline-block;
-    position: relative;
-    top: 4px;
-    float: right;
+    display: block;
     text-decoration: none;
+    position: relative;
+    left: -5px;
 
     img {
         width: 35px;

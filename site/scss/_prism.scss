@@ -14,11 +14,39 @@ $side-height: $prism-height + $side-height-padding;
     padding: 0;
     top: 0;
     width: 100%;
+    background: transparent no-repeat bottom center;
+    background-size: contain;
+    padding-bottom: percentage(9/16);
 }
 
 .side--visible {
     display: block;
 }
+
+.side--front {
+    background-image: url('../images/front.jpeg');
+}
+
+.side--back {
+    background-image: url('../images/back.jpeg');
+}
+
+.side--left {
+    background-image: url('../images/left.jpeg');
+}
+
+.side--right {
+    background-image: url('../images/right.jpeg');
+}
+
+.side--top {
+    background-image: url('../images/top.jpeg');
+}
+
+.side--bottom {
+    background-image: url('../images/bottom.jpeg');
+}
+
 
 @media(min-width: breakpoint(tablet)) {
     .cube {
@@ -59,6 +87,7 @@ $side-height: $prism-height + $side-height-padding;
         background-size: cover;
         left: ($side-width-padding / -2);
         top: ($side-height-padding / -2);
+        padding-bottom: 0;
     }
 
     .side__content {
@@ -75,27 +104,27 @@ $side-height: $prism-height + $side-height-padding;
     }
 
     .side--front {
-        background-image: url(../images/front.jpeg);
+        background-image: url('../images/front@2x.jpeg');
     }
 
     .side--back {
-        background-image: url(../images/back.jpeg);
+        background-image: url('../images/back@2x.jpeg');
     }
 
     .side--left {
-        background-image: url(../images/left.jpeg);
+        background-image: url('../images/left@2x.jpeg');
     }
 
     .side--right {
-        background-image: url(../images/right.jpeg);
+        background-image: url('../images/right@2x.jpeg');
     }
 
     .side--top {
-        background-image: url(../images/top.jpeg);
+        background-image: url('../images/top@2x.jpeg');
     }
 
     .side--bottom {
-        background-image: url(../images/bottom.jpeg);
+        background-image: url('../images/bottom@2x.jpeg');
     }
 
     .side--position-back {

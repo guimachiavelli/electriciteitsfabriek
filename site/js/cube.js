@@ -20,10 +20,10 @@ Prism.prototype.animateClass = 'side--will-animate';
 Prism.prototype.transitionClass = 'sides--transition';
 Prism.prototype.visibleClass = 'side--visible';
 
-Prism.prototype.turn = function(target, status, noTransform) {
+Prism.prototype.turn = function(target, status, preserve3d) {
     var immediate;
 
-    immediate = status === 's' || noTransform ? true : false;
+    immediate = (status === 's' || !preserve3d) ? true : false;
 
     this.animate(target, immediate);
 };

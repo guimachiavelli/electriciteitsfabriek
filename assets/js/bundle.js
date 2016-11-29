@@ -368,10 +368,10 @@ Prism.prototype.animateClass = 'side--will-animate';
 Prism.prototype.transitionClass = 'sides--transition';
 Prism.prototype.visibleClass = 'side--visible';
 
-Prism.prototype.turn = function(target, status, noTransform) {
+Prism.prototype.turn = function(target, status, preserve3d) {
     var immediate;
 
-    immediate = status === 's' || noTransform ? true : false;
+    immediate = (status === 's' || !preserve3d) ? true : false;
 
     this.animate(target, immediate);
 };
@@ -457,6 +457,8 @@ module.exports = Prism;
 },{}],4:[function(require,module,exports){
 'use strict';
 
+require('./modernizr.preserve3d');
+
 var Navigo = require('navigo');
 
 var Cube = require('./cube'),
@@ -536,7 +538,7 @@ var Site = {
             return;
         }
 
-        this.cube.turn('#' + target, this.beacon.status());
+        this.cube.turn('#' + target, this.beacon.status(), Modernizr.preserve3d);
         this.toggleActiveMenuItem(target);
     },
 
@@ -683,4 +685,9 @@ var Site = {
 
 Site.init();
 
-},{"./beacon":2,"./cube":3,"navigo":1}]},{},[4]);
+},{"./beacon":2,"./cube":3,"./modernizr.preserve3d":5,"navigo":1}],5:[function(require,module,exports){
+/*! modernizr 3.3.1 (Custom Build) | MIT *
+ * https://modernizr.com/download/?-preserve3d-setclasses !*/
+!function(e,n,t){function s(e,n){return typeof e===n}function a(){var e,n,t,a,o,i,f;for(var c in l)if(l.hasOwnProperty(c)){if(e=[],n=l[c],n.name&&(e.push(n.name.toLowerCase()),n.options&&n.options.aliases&&n.options.aliases.length))for(t=0;t<n.options.aliases.length;t++)e.push(n.options.aliases[t].toLowerCase());for(a=s(n.fn,"function")?n.fn():n.fn,o=0;o<e.length;o++)i=e[o],f=i.split("."),1===f.length?Modernizr[f[0]]=a:(!Modernizr[f[0]]||Modernizr[f[0]]instanceof Boolean||(Modernizr[f[0]]=new Boolean(Modernizr[f[0]])),Modernizr[f[0]][f[1]]=a),r.push((a?"":"no-")+f.join("-"))}}function o(e){var n=c.className,t=Modernizr._config.classPrefix||"";if(d&&(n=n.baseVal),Modernizr._config.enableJSClass){var s=new RegExp("(^|\\s)"+t+"no-js(\\s|$)");n=n.replace(s,"$1"+t+"js$2")}Modernizr._config.enableClasses&&(n+=" "+t+e.join(" "+t),d?c.className.baseVal=n:c.className=n)}function i(){return"function"!=typeof n.createElement?n.createElement(arguments[0]):d?n.createElementNS.call(n,"http://www.w3.org/2000/svg",arguments[0]):n.createElement.apply(n,arguments)}var r=[],l=[],f={_version:"3.3.1",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,n){var t=this;setTimeout(function(){n(t[e])},0)},addTest:function(e,n,t){l.push({name:e,fn:n,options:t})},addAsyncTest:function(e){l.push({name:null,fn:e})}},Modernizr=function(){};Modernizr.prototype=f,Modernizr=new Modernizr;var c=n.documentElement,d="svg"===c.nodeName.toLowerCase();Modernizr.addTest("preserve3d",function(){var e=i("a"),n=i("a");e.style.cssText="display: block; transform-style: preserve-3d; transform-origin: right; transform: rotateY(40deg);",n.style.cssText="display: block; width: 9px; height: 1px; background: #000; transform-origin: right; transform: rotateY(40deg);",e.appendChild(n),c.appendChild(e);var t=n.getBoundingClientRect();return c.removeChild(e),t.width&&t.width<4}),a(),o(r),delete f.addTest,delete f.addAsyncTest;for(var p=0;p<Modernizr._q.length;p++)Modernizr._q[p]();e.Modernizr=Modernizr}(window,document);
+
+},{}]},{},[4]);

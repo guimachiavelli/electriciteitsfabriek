@@ -1,5 +1,7 @@
 'use strict';
 
+require('./modernizr.preserve3d');
+
 var Navigo = require('navigo');
 
 var Cube = require('./cube'),
@@ -79,7 +81,7 @@ var Site = {
             return;
         }
 
-        this.cube.turn('#' + target, this.beacon.status());
+        this.cube.turn('#' + target, this.beacon.status(), Modernizr.preserve3d);
         this.toggleActiveMenuItem(target);
     },
 

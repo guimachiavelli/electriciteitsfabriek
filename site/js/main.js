@@ -60,7 +60,7 @@ var Site = {
 
             wrapper.removeChild(intro);
             body.classList.remove('intro-active');
-        },  mobile ? 1250 : 2750);
+        },  mobile ? 2000 : 2750);
     },
 
     navigate: function(target, params) {

@@ -150,7 +150,9 @@ img {
 
 @media (min-width: 768px) {
   body {
-    background-image: url("../images/front.jpeg"); }
+    background-repeat: no-repeat;
+    background-image: url("../images/front.jpeg");
+    background-size: cover; }
   .beacon::before {
     content: 'm'; }
   .js.intro-active .wrapper {

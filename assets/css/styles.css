@@ -424,7 +424,6 @@ img {
       color: white; } }
 
 .side {
-  display: none;
   height: 100%;
   left: 0;
   margin: 0;
@@ -436,7 +435,7 @@ img {
   padding-bottom: 56.25%; }
 
 .side--visible {
-  display: block; }
+  display: block !important; }
 
 .side--front {
   background-image: url("../images/front.jpeg"); }
@@ -463,13 +462,15 @@ img {
     overflow: hidden;
     position: absolute;
     top: 0;
-    width: 100vw; }
+    width: 100vw;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0); }
   .cube--transition-horizontal {
-    -webkit-perspective: 100vw;
-            perspective: 100vw; }
+    -webkit-perspective: 95vw;
+            perspective: 95vw; }
   .cube--transition-vertical {
-    -webkit-perspective: 100vh;
-            perspective: 100vh; }
+    -webkit-perspective: 95vh;
+            perspective: 95vh; }
   .sides {
     height: 100%;
     list-style: none;
@@ -491,7 +492,8 @@ img {
     background-size: cover;
     left: 0;
     top: 0;
-    padding-bottom: 0; }
+    padding-bottom: 0;
+    display: none; }
   .side__content {
     margin: 0 0 0 0;
     max-height: 100vh;

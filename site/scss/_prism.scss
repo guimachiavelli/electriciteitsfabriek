@@ -7,7 +7,7 @@ $side-width: $prism-width + $side-width-padding;
 $side-height: $prism-height + $side-height-padding;
 
 .side {
-    display: none;
+    //display: none;
     height: 100%;
     left: 0;
     margin: 0;
@@ -20,7 +20,7 @@ $side-height: $prism-height + $side-height-padding;
 }
 
 .side--visible {
-    display: block;
+    display: block !important;
 }
 
 .side--front {
@@ -56,14 +56,19 @@ $side-height: $prism-height + $side-height-padding;
         position: absolute;
         top: 0;
         width: $prism-width;
+        transform: translateZ(0);
     }
 
     .cube--transition-horizontal {
-        perspective: $prism-width;
+        //perspective: $prism-width;
+        //XXX chrome(55) loses its mind if perspective === window.innerWidth
+        perspective: $prism-width * 0.95;
     }
 
     .cube--transition-vertical {
-        perspective: $prism-height;
+        //perspective: $prism-height;
+        //XXX chrome(55) loses its mind if perspective === window.innerHeight
+        perspective: $prism-height * 0.95;
     }
 
     .sides {
@@ -88,6 +93,7 @@ $side-height: $prism-height + $side-height-padding;
         left: ($side-width-padding / -2);
         top: ($side-height-padding / -2);
         padding-bottom: 0;
+        display: none;
     }
 
     .side__content {

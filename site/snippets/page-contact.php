@@ -9,10 +9,6 @@
         <div class="contact__column contact__column--address">
             <?php echo $content->address()->kirbytext(); ?>
 
-            <a href="http://uniper.nl"class="contact__sponsor">
-                <img src="./assets/images/uniper.png" alt="uniper">
-            </a>
-
             <?php if ($content->instagram()->isNotEmpty()): ?>
                 <a class="contact__social" href="<?php echo $content->instagram()->toURL(); ?>">
                     <i class="i i--instagram"></i>

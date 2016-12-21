@@ -668,19 +668,15 @@ img {
     font-size: 38px;
     text-decoration: none; }
 
-.contact__sponsor {
-  display: block;
-  text-decoration: none;
-  position: relative;
-  left: -5px; }
-  .contact__sponsor img {
-    width: 35px; }
-
 .i__text-replacement {
   display: block;
   height: 0;
   overflow: hidden;
   width: 0; }
+
+.contact__column--address img {
+  width: 35px;
+  margin-bottom: 8px; }
 
 @media (min-width: 768px) {
   .contact__column {

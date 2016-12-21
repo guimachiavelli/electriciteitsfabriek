@@ -13,22 +13,18 @@
     }
 }
 
-.contact__sponsor {
-    display: block;
-    text-decoration: none;
-    position: relative;
-    left: -5px;
-
-    img {
-        width: 35px;
-    }
-}
-
 .i__text-replacement {
     display: block;
     height: 0;
     overflow: hidden;
     width: 0;
+}
+
+.contact__column--address {
+    img {
+        width: 35px;
+        margin-bottom: baselines(1);
+    }
 }
 
 @media(min-width: breakpoint(tablet)) {

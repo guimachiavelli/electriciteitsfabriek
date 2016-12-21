@@ -350,33 +350,33 @@ $menu-item-height: baselines(4);
     }
 
     .menu-item__link {
-        background: white;
+        background: colour(black);
         width: 100%;
         height: $menu-item-height;
         line-height: $menu-item-height;
-        color: colour(black);
+        color: colour(white);
 
         &:hover {
-            background: colour(black);
-            color: colour(white);
+            background: colour(white);
+            color: colour(black);
         }
 
         &:hover:visited {
-            color: colour(white);
+            color: colour(black);
         }
 
         &:visited {
-            color: colour(black);
+            color: colour(white);
         }
     }
 
     .menu-item__link--active {
-        background: black;
-        color: colour(white);
+        background: colour(white);
+        color: colour(black);
         cursor: default;
 
         &:visited {
-            color: colour(white);
+            color: colour(black);
         }
     }
 }
